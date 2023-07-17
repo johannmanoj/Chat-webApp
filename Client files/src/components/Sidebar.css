@@ -1,0 +1,13 @@
+.sidebar {
+    position: absolute;
+    background-color: brown;
+    width: 70px;
+    height: 100%;
+}
+
+.sidebar-icons {
+    margin-top: 15px;
+    color: white;
+    height: 30px;
+    width: 30px;
+}
