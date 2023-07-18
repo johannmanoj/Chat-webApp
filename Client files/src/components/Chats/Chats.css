@@ -1,0 +1,33 @@
+.Chats{
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-sidebar{
+    width: 20%;
+    height: 695px;
+    background-color: bisque;
+}
+
+.chat-messages{
+    width: 80%;
+    height: 695px;
+    background-color: rgb(231, 187, 133);
+    text-align: center;
+}
+
+.chat-search-bar{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:200px;
+    height: 30px;
+    border-radius: 10px;
+    border-color: white;
+}
+
+.chat-sidebar-icon{
+    color: white;
+    height: 30px;
+    width: 30px;
+}
+
