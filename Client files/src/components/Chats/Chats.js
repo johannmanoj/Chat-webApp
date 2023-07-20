@@ -1,6 +1,7 @@
 import React from 'react'
 import './Chats.css'
 import ChatSidebarItem from './ChatSidebarItem'
+import ChatMessages from './ChatMessages';
 import { FaSearch} from "react-icons/fa";
 
 const Chats = () => {
@@ -34,7 +35,7 @@ const Chats = () => {
        
       </div>
       <div className='chat-messages'>
-          No Chats
+          <ChatMessages />
       </div>
     </div>
     
