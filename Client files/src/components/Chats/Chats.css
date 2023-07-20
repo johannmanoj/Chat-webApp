@@ -6,28 +6,38 @@
 .chat-sidebar{
     width: 20%;
     height: 695px;
-    background-color: bisque;
+    background-color: #2e333d;
+}
+
+.chat-sidebar-header{
+    margin-top: 10px;
+    display: flex;
 }
 
 .chat-messages{
     width: 80%;
     height: 695px;
-    background-color: rgb(231, 187, 133);
+    background-color: #414755;
     text-align: center;
 }
 
 .chat-search-bar{
+    border-style: solid;
     margin-top: 10px;
     margin-bottom: 10px;
-    width:200px;
+    width:230px;
     height: 30px;
     border-radius: 10px;
-    border-color: white;
+    background-color: #414755;
+    border-color: #414755;
 }
 
 .chat-sidebar-icon{
+    margin-top: 16px;
+    margin-right: 10px;
+    margin-left: 20px;
     color: white;
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 }
 

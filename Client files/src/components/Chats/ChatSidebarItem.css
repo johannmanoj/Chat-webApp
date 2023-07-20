@@ -12,20 +12,20 @@
 
 .testtttttttt{
     display: flex;
-  /* flex-direction: column; */
 }
 
 .chat-name{
     margin-top: 7px;
+    color: white;
     /* justify-content: center; */
 }
 
 .chat-name-bar:hover{
-    background-color: aqua;
+    background-color: #414755;
 }
 
 .chat-profile-image{
-    background-color: rgb(186, 186, 233);
+    background-color: #525a6b;
     height: 40px;
     width: 40px;
     border-radius: 10px;
