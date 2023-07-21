@@ -30,3 +30,27 @@
     color: white;
     border-radius: 10px;
 }
+
+.chat-message-header{
+    background-color:  #343a45;
+    width:1158px;
+    height: 60px;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+}
+
+.chat-message-profile-pic{
+    margin-top: 7px;
+    margin-left: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+.chat-message-profile-name{
+    margin-top: 7px;
+    margin-left: 20px;
+    
+    
+}
