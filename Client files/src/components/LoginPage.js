@@ -7,7 +7,9 @@ const LoginPage = () => {
   return (
     <div className='login-background'>
         <div className='login-card'>
-            LoginPage
+            <button class="login-with-google-btn">
+                Sign in with Google
+            </button>
         </div>
     </div>
   )
