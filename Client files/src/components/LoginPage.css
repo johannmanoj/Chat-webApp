@@ -1,0 +1,15 @@
+.login-background{
+    background-color: #414755;
+    height: 713px;
+}
+
+.login-card{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    background-color: #282c34;
+    width: 700px;
+    height: 400px;
+    border-radius: 10px;
+}
+
