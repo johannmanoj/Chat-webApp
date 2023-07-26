@@ -32,8 +32,9 @@
 }
 
 .chat-message-header{
+    border-top-right-radius: 20px;
     background-color:  #343a45;
-    width:1158px;
+    width:1146px;
     height: 60px;
     margin-bottom: 20px;
     color: white;

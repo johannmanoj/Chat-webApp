@@ -1,12 +1,15 @@
 .sidebar {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     position: absolute;
     background-color: #131313;
     width: 70px;
-    height: 100%;
+    height: 696px;
 }
 
 .sidebar-icons {
     margin-top: 15px;
+    margin-left: 20px;
     color: white;
     height: 30px;
     width: 30px;

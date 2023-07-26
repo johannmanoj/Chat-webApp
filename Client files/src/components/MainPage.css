@@ -1,7 +1,10 @@
 .main_page {
     position: absolute;
     background-color:#414755;
-    width: 1466px;
-    height: 100%;
+    /* background-color:#375bad; */
+    width: 1450px;
+    height: 696px;
     margin-left: 70px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }

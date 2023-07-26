@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {FaRegComments} from "react-icons/fa";
+import './Login.css'
 
 
 import GoogleButton from "react-google-button";
@@ -21,11 +22,11 @@ const Login = () => {
   };
 
   return (
-    <>
-      <div className="p-4 box">
+    <div className="login-background">
+      <div className="login-card">
         <FaRegComments className="login-icons"/>
-        <h2 className="mb-3">Login</h2>
-        <hr />
+        <h2>Login</h2>
+        
         <div>
           <GoogleButton
             className="g-btn"
@@ -34,7 +35,7 @@ const Login = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
