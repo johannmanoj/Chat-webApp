@@ -9,19 +9,23 @@ initializeApp({
 
 const db = getFirestore();
 
-const add_data = async () =>{
-    const citiesRef = db.collection('users');
-    await citiesRef.set({ user_id: "", email: 'test@gmail.com', profile_pic: '' });
+const add_data = async (tableName, id, data) =>{
+  const citiesRef = db.collection(tableName);
+  var log_res = await citiesRef.doc(id).set(data);
+  return log_res
 }
 
 const get_data = async () =>{
-    const cityRef = db.collection('cities').doc('SF');
-    const doc = await cityRef.get();
-    if (!doc.exists) {
-    console.log('No such document!');
-    } else {
-    console.log('Document data:', doc.data());
-    }
+  var data = []
+  const citiesRef = db.collection('users');
+  const snapshot = await citiesRef.get();
+  snapshot.forEach(doc => {
+    console.log(doc.id, '=>', doc.data());
+    data.push(doc.data())
+  });
+  return data
 }
 
-// get_data()
+// add_data('users', { "user_id": "2", "email": 'test2@gmail.com', "firstName" :"John", "lastName" : "Doe", "profilePic": '' })
+
+module.exports = {add_data, get_data}

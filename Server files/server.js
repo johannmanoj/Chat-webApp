@@ -3,27 +3,39 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
+const firebase = require('./Firebase')
 
 
 
 
 
 
-// app.post('/create', async (req,res) =>{
-//     try {
-//         const {email, firstName, lastName} = req.body
-//         const id = email;
-//         const userjson = {
-//             email:email,
-//             firstName:firstName,
-//             lastName:lastName
-//         }
-//         const response = await db.collection("users").doc(id).add(userjson)
-//         res.send(response)
-//     } catch (error) {
-//         res.send(error)
-//     }
-// })
+app.post('/log-user', async (req,res) =>{
+    try {
+        const {email, firstName, lastName, profilePic} = req.body
+        var data = { 
+            "user_id": "", 
+            "email": email, 
+            "firstName" :firstName, 
+            "lastName" : lastName, 
+            "profilePic": profilePic 
+        }
+        var response = await firebase.add_data("users",email,data)
+        console.log("response", response);
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
+app.post('/get-user-list', async (req,res) =>{
+    try {
+        var response = await firebase.get_data()
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
 
 
 

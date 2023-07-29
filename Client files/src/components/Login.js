@@ -14,7 +14,8 @@ const Login = () => {
   const handleGoogleSignIn = async (e) => {
     e.preventDefault();
     try {
-      await googleSignIn();
+      var google_res = await googleSignIn();
+      console.log("google_res", google_res);
       navigate("/Dashboard");
     } catch (error) {
       console.log(error.message);
