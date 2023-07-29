@@ -9,29 +9,9 @@ initializeApp({
 
 const db = getFirestore();
 
-const test = async () =>{
-    const citiesRef = db.collection('cities');
-
-    await citiesRef.doc('SF').set({
-    name: 'San Francisco', state: 'CA', country: 'USA',
-    capital: false, population: 860000
-    });
-    await citiesRef.doc('LA').set({
-    name: 'Los Angeles', state: 'CA', country: 'USA',
-    capital: false, population: 3900000
-    });
-    await citiesRef.doc('DC').set({
-    name: 'Washington, D.C.', state: null, country: 'USA',
-    capital: true, population: 680000
-    });
-    await citiesRef.doc('TOK').set({
-    name: 'Tokyo', state: null, country: 'Japan',
-    capital: true, population: 9000000
-    });
-    await citiesRef.doc('BJ').set({
-    name: 'Beijing', state: null, country: 'China',
-    capital: true, population: 21500000
-    });
+const add_data = async () =>{
+    const citiesRef = db.collection('users');
+    await citiesRef.set({ user_id: "", email: 'test@gmail.com', profile_pic: '' });
 }
 
 const get_data = async () =>{
@@ -44,4 +24,4 @@ const get_data = async () =>{
     }
 }
 
-get_data()
+// get_data()
