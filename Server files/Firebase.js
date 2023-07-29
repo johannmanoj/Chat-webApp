@@ -1,30 +1,47 @@
-const config = require('./Config')
+const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
+const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
 
-const fs = require('firebase-admin');
+const {serviceAccount} = require('./Config');
 
-// const serviceAccount = require('./path/to/key.json');
-
-fs.initializeApp({
- credential: fs.credential.cert(config.serviceAccount)
+initializeApp({
+  credential: cert(serviceAccount)
 });
 
+const db = getFirestore();
+
 const test = async () =>{
-    const db = fs.firestore(); 
+    const citiesRef = db.collection('cities');
 
-    const usersDb = db.collection('users'); 
-
-    const liam = usersDb.doc('lragozzine'); 
-
-    var res = await liam.set({
-        first: 'Liam',
-        last: 'Ragozzine',
-        address: '133 5th St., San Francisco, CA',
-        birthday: '05/13/1990',
-        age: '30'
+    await citiesRef.doc('SF').set({
+    name: 'San Francisco', state: 'CA', country: 'USA',
+    capital: false, population: 860000
     });
-
-    console.log("res", res);
+    await citiesRef.doc('LA').set({
+    name: 'Los Angeles', state: 'CA', country: 'USA',
+    capital: false, population: 3900000
+    });
+    await citiesRef.doc('DC').set({
+    name: 'Washington, D.C.', state: null, country: 'USA',
+    capital: true, population: 680000
+    });
+    await citiesRef.doc('TOK').set({
+    name: 'Tokyo', state: null, country: 'Japan',
+    capital: true, population: 9000000
+    });
+    await citiesRef.doc('BJ').set({
+    name: 'Beijing', state: null, country: 'China',
+    capital: true, population: 21500000
+    });
 }
 
-// test()
+const get_data = async () =>{
+    const cityRef = db.collection('cities').doc('SF');
+    const doc = await cityRef.get();
+    if (!doc.exists) {
+    console.log('No such document!');
+    } else {
+    console.log('Document data:', doc.data());
+    }
+}
 
+get_data()

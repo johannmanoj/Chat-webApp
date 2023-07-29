@@ -1,18 +1,33 @@
 const express = require("express");
 const app = express();
-const admin = require("firebase-admin")
-const {credentials} = require("./Config")
-
-admin.initializeApp({
-    credential: admin.credential.cert(credentials)
-});
-
-app.post('/create', async ())
-
-const db = admin.firestore();
 
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
+
+
+
+
+
+
+// app.post('/create', async (req,res) =>{
+//     try {
+//         const {email, firstName, lastName} = req.body
+//         const id = email;
+//         const userjson = {
+//             email:email,
+//             firstName:firstName,
+//             lastName:lastName
+//         }
+//         const response = await db.collection("users").doc(id).add(userjson)
+//         res.send(response)
+//     } catch (error) {
+//         res.send(error)
+//     }
+// })
+
+
+
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () =>{
