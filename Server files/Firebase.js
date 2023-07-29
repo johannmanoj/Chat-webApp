@@ -1,6 +1,30 @@
-const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
-const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
+const config = require('./Config')
 
-initializeApp();
+const fs = require('firebase-admin');
 
-const db = getFirestore();
+// const serviceAccount = require('./path/to/key.json');
+
+fs.initializeApp({
+ credential: fs.credential.cert(config.serviceAccount)
+});
+
+const test = async () =>{
+    const db = fs.firestore(); 
+
+    const usersDb = db.collection('users'); 
+
+    const liam = usersDb.doc('lragozzine'); 
+
+    var res = await liam.set({
+        first: 'Liam',
+        last: 'Ragozzine',
+        address: '133 5th St., San Francisco, CA',
+        birthday: '05/13/1990',
+        age: '30'
+    });
+
+    console.log("res", res);
+}
+
+// test()
+
