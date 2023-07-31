@@ -2,7 +2,7 @@ import React from 'react'
 import './ChatSidebarItem.css'
 
 const ChatSidebarItem = (props) => {
-  console.log("url---",props.user_pic);
+  // console.log("url---",props.user_pic);
   return (
     <div className='chat-name-bar'>
         <div className='testtttttttt'>

@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       var google_res = await googleSignIn();
-      console.log("google_res", google_res);
+      // console.log("google_res", google_res);
       navigate("/Dashboard");
     } catch (error) {
       console.log(error.message);

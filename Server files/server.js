@@ -1,13 +1,17 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
 
-app.use(express.json());
-app.use(express.urlencoded({extended : true}));
+app.use(cors());
+// app.use(express.json());
+// app.use(express.urlencoded({extended : true}));
 const firebase = require('./Firebase')
 
 
 
-
+app.get('/', async (req,res) =>{
+    res.send("Hello World")
+})
 
 
 app.post('/log-user', async (req,res) =>{
@@ -21,7 +25,7 @@ app.post('/log-user', async (req,res) =>{
             "profilePic": profilePic 
         }
         var response = await firebase.add_data("users",email,data)
-        console.log("response", response);
+        // console.log("response", response);
         res.status(200).send(response)
     } catch (error) {
         res.status(500).send(error)

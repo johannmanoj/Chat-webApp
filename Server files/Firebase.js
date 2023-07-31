@@ -20,7 +20,7 @@ const get_data = async () =>{
   const citiesRef = db.collection('users');
   const snapshot = await citiesRef.get();
   snapshot.forEach(doc => {
-    console.log(doc.id, '=>', doc.data());
+    // console.log(doc.id, '=>', doc.data());
     data.push(doc.data())
   });
   return data
