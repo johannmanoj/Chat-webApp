@@ -25,20 +25,30 @@ const Login = () => {
   };
 
   return (
-    <div className="login-background">
-      <div className="login-card">
-        <FaRegComments className="login-icons"/>
-        <h2>Login</h2>
+    // <div className="login-background">
+    //   <div className="login-card">
+    //     <FaRegComments className="login-icons"/>
+    //     <h2>Login</h2>
         
-        <div>
-          <GoogleButton
-            className="g-btn"
-            type="dark"
-            onClick={handleGoogleSignIn}
-          />
-        </div>
-      </div>
+    //     <div>
+    //       {/* <GoogleButton
+    //         className="g-btn"
+    //         type="dark"
+    //         onClick={handleGoogleSignIn}
+    //       /> */}
+    //       <div className="login-button">
+    //         <img src="https://w7.pngwing.com/pngs/543/934/png-transparent-google-app-logo-google-logo-g-suite-google-text-logo-circle.png" className="google-logo" width="30" height="30" />
+    //         <div className="google-signin">Sign in with Google</div>
+    //       </div>
+   
+          
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="login-background2">
+      <span><a href="#" onClick={handleGoogleSignIn}></a></span>
     </div>
+    
   );
 };
 
