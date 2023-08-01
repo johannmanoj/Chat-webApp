@@ -9,10 +9,18 @@ initializeApp({
 
 const db = getFirestore();
 
-const add_data = async (tableName, id, data) =>{
+const add_data2 = async (tableName, id, data) =>{
   const citiesRef = db.collection(tableName);
   var log_res = await citiesRef.doc(id).set(data);
-  return log_res
+  return log_res  
+}
+
+const add_data = async (tableName, data) =>{
+  var curr_date = new Date
+  data["created"] = curr_date.getTime()
+  const citiesRef = db.collection(tableName);
+  var log_res = await citiesRef.add(data);
+  return log_res  
 }
 
 const get_data = async () =>{
@@ -26,6 +34,43 @@ const get_data = async () =>{
   return data
 }
 
-// add_data('users', { "user_id": "2", "email": 'test2@gmail.com', "firstName" :"John", "lastName" : "Doe", "profilePic": '' })
+const get_user_messages = async (email) =>{
+  const messages = []
+  const citiesRef = db.collection('messages');
+  const snapshot = await citiesRef.where('contact_email', '==', email).get();
+  if (snapshot.empty) {
+    console.log('No matching documents.');
+    messages.push({
+      "user_email": "johann.perfit@gmail.com",
+      "created": "",
+      "type": "internal",
+      "message": "No Messages",
+      "contact_email": ""
+  })
+    return messages;
+  }  
 
-module.exports = {add_data, get_data}
+  snapshot.forEach(doc => {
+    // console.log(doc.id, '=>', doc.data());
+    messages.push(doc.data())
+  });
+  // console.log("messages", messages);
+  return messages
+}
+
+// add_data('messages', { 
+//   "user_email": "johann.perfit@gmail.com", 
+//   "contact_email": 'clint@gmail.com', 
+//   "type" :"internal", 
+//   "message" : "c5"
+// })
+
+// add_data('messages', { "user_id": "", "email": 'clint@gmail.com', "type" :"internal", "message" : "20"})
+// add_data('messages', { "user_id": "", "email": 'clint@gmail.com', "type" :"external", "message" : "30"})
+// add_data('messages', { "user_id": "", "email": 'clint@gmail.com', "type" :"external", "message" : "40"})
+// add_data('messages', { "user_id": "", "email": 'clint@gmail.com', "type" :"internal", "message" : "50"})
+
+
+
+
+module.exports = {add_data, get_data, get_user_messages}

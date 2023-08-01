@@ -7,7 +7,8 @@ import axios from 'axios';
 
 const Chats = () => {
   const [contactList, setContactList] = useState([])
-  const [selectedContact, setSelectedContact] = useState("test@gmail.com")
+  const [selectedContact, setSelectedContact] = useState({"email":"", "name":"", "profilePic":""})
+  const [selectedContactDetails, setSelectedContactDetails] = useState()
 
   // const [contactList, setContactList] = useState([
   //   {
@@ -56,14 +57,14 @@ const Chats = () => {
         </div>
         
         {contactList.map((user) => (
-          <div onClick={() =>  setSelectedContact(user.email)}>
+          <div onClick={() =>  setSelectedContact({"email":user.email, "name":user.firstName, "profilePic":user.profilePic})}>
             <ChatSidebarItem user_name = {user.firstName} user_pic = {user.profilePic} user_email = {user.email} />
           </div>
         ))}
         
       </div>
       <div className='chat-messages'>
-          <ChatMessages contact_name = {selectedContact} />
+          <ChatMessages contact_details = {selectedContact} />
       </div>
     </div>
   )

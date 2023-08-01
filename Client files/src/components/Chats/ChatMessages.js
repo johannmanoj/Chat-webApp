@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './ChatMessages.css'
 import axios from 'axios'
 
-const ChatMessages = (props) => {
+const ChatMessages = ({contact_details}) => {
   const [messages, setMessages] = useState([
     {
       "message":"Hi, this is John.",
@@ -23,7 +23,7 @@ const ChatMessages = (props) => {
       const config = {
         method: 'post',
         url: `http://localhost:8080/get-user-messages`,
-        data : {"email" :props.contact_name}
+        data : {"email" :contact_details.email}
       }
       await axios(config)
         .then((response) => {
@@ -36,14 +36,14 @@ const ChatMessages = (props) => {
     }
 
     get_contacts_list()
-  },[props.contact_name])
+  },[contact_details])
 
   return (
     <div>
       <div className='chat-message-header'>
         <img className='chat-message-profile-pic' src={"https://www.shareicon.net/data/512x512/2016/07/05/791214_man_512x512.png"} />
         {/* <div className='chat-message-profile-pic'></div> */}
-        <div className='chat-message-profile-name'>John</div>
+        <div className='chat-message-profile-name'>{contact_details.name}</div>
       </div>
       
         {messages.map((singleMessage)=>{
