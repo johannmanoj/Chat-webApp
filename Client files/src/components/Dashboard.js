@@ -16,6 +16,7 @@ const Dashboard = () => {
   const handleLogout = async () => {
     try {
       await logOut();
+      localStorage.removeItem("userEmail")
       navigate("/");
     } catch (error) {
       console.log(error.message);

@@ -16,6 +16,8 @@ const Login = () => {
     try {
       var google_res = await googleSignIn();
       // console.log("google_res", google_res);
+      
+      localStorage.setItem("userEmail", google_res["user"]["email"])
       navigate("/Dashboard");
     } catch (error) {
       console.log(error.message);
