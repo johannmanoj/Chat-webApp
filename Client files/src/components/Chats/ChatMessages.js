@@ -38,31 +38,37 @@ const ChatMessages = ({contact_details}) => {
     get_contacts_list()
   },[contact_details])
 
-  return (
-    <div className='chatMessages-background'>
-      <div className='chat-message-header'>
-        <img className='chat-message-profile-pic' src={contact_details.profilePic} />
-        {/* <div className='chat-message-profile-pic'></div> */}
-        <div className='chat-message-profile-name'>{contact_details.name}</div>
+  if(contact_details.email != ""){
+    return (
+      <div className='chatMessages-background'>
+        <div className='chat-message-header'>
+          <img className='chat-message-profile-pic' src={contact_details.profilePic} />
+          {/* <div className='chat-message-profile-pic'></div> */}
+          <div className='chat-message-profile-name'>{contact_details.name}</div>
+        </div>
+        
+        <div className='messages-log-background'>
+          {messages.map((singleMessage)=>{
+              return(
+                  <div className={singleMessage.type == "internal" ? 'chat-message-internal-align' : 'chat-message-external-align'}>
+                      <div  className={singleMessage.type == "internal" ? 'chat-message-internal' : 'chat-message-external'} > 
+                          {singleMessage.message}
+                      </div>
+                  </div>
+              )
+          })}
+        </div>
+        <div className='message-footer'>
+          <input className='message-input'></input>
+        </div>
+  
       </div>
-      
-      <div className='messages-log-background'>
-        {messages.map((singleMessage)=>{
-            return(
-                <div className={singleMessage.type == "internal" ? 'chat-message-internal-align' : 'chat-message-external-align'}>
-                    <div  className={singleMessage.type == "internal" ? 'chat-message-internal' : 'chat-message-external'} > 
-                        {singleMessage.message}
-                    </div>
-                </div>
-            )
-        })}
-      </div>
-      <div className='message-footer'>
-        <input></input>
-      </div>
-
-    </div>
-  )
+    )
+  }else {
+    return (
+      <div className='chatMessages-background'></div>
+    )
+  }
 }
 
 export default ChatMessages
