@@ -4,8 +4,8 @@
 }
 
 .chat-sidebar{
-    width: 21%;
-    height: 696px;
+    width: 320px;
+    height: 97.5vh;
     background-color: #2e333d;
 }
 
@@ -15,9 +15,12 @@
 }
 
 .chat-messages{
-    width: 1120px;
-    height: 695px;
-    background-color: #414755;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 80vw;
+    height: 97.5vh;
+    /* background-color: #414755; */
+    background-color: #2048a7;
     text-align: center;
 }
 

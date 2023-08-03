@@ -10,7 +10,7 @@ const ChatSidebarItem = (props) => {
         <div className='chat-name'>
             {props.user_name}
         </div>
-        {props.user_email}
+        {/* {props.user_email} */}
         </div>
     </div>
   )

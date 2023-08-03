@@ -44,10 +44,6 @@ const Chats = () => {
     get_contacts_list()
   },[])
 
-  // const updateSelectedContact = (email) =>{
-  //   setSelectedContact(email)
-  // }
-  
   return (
     <div className='Chats' >
       <div className='chat-sidebar'>
@@ -63,9 +59,9 @@ const Chats = () => {
         ))}
         
       </div>
-      <div className='chat-messages'>
-          <ChatMessages contact_details = {selectedContact} />
-      </div>
+      
+      <ChatMessages className='chat-messages' contact_details = {selectedContact} />
+      
     </div>
   )
 }

@@ -1,6 +1,47 @@
+.chatMessages-background{
+    width: 100%;
+    height: 97.5vh;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-message-header{
+    color: white;
+    display: flex;
+    height: 60px;
+    width: 100%;
+    background: #343a45;
+    border-top-right-radius: 20px;
+    /* margin-bottom: 20px; */
+}
+
+.chat-message-profile-pic{
+    margin-top: 7px;
+    margin-left: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+}
+
+.chat-message-profile-name{
+    margin-top: 7px;
+    margin-left: 20px;
+}
+
+
+.messages-log-background{
+    height: calc(100% - 120px);
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
 .chat-message-internal-align{
     display: flex;
     justify-content: end;
+    margin-right: 30px;
 }
 .chat-message-external-align{
     display: flex;
@@ -31,27 +72,11 @@
     border-radius: 10px;
 }
 
-.chat-message-header{
-    border-top-right-radius: 20px;
-    background-color:  #343a45;
-    width:1146px;
+
+.message-footer{
     height: 60px;
-    margin-bottom: 20px;
-    color: white;
-    display: flex;
+    width: 100%;
+    border-bottom-right-radius: 20px;
+    background: #343a45;
 }
 
-.chat-message-profile-pic{
-    margin-top: 7px;
-    margin-left: 20px;
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-}
-
-.chat-message-profile-name{
-    margin-top: 7px;
-    margin-left: 20px;
-    
-    
-}

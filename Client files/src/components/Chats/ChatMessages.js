@@ -39,13 +39,14 @@ const ChatMessages = ({contact_details}) => {
   },[contact_details])
 
   return (
-    <div>
+    <div className='chatMessages-background'>
       <div className='chat-message-header'>
-        <img className='chat-message-profile-pic' src={"https://www.shareicon.net/data/512x512/2016/07/05/791214_man_512x512.png"} />
+        <img className='chat-message-profile-pic' src={contact_details.profilePic} />
         {/* <div className='chat-message-profile-pic'></div> */}
         <div className='chat-message-profile-name'>{contact_details.name}</div>
       </div>
       
+      <div className='messages-log-background'>
         {messages.map((singleMessage)=>{
             return(
                 <div className={singleMessage.type == "internal" ? 'chat-message-internal-align' : 'chat-message-external-align'}>
@@ -55,6 +56,11 @@ const ChatMessages = ({contact_details}) => {
                 </div>
             )
         })}
+      </div>
+      <div className='message-footer'>
+        <input></input>
+      </div>
+
     </div>
   )
 }
