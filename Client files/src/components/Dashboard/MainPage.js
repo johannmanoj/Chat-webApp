@@ -1,8 +1,8 @@
 import React from 'react'
 import './MainPage.css'
-import Chats from './Chats/Chats'
-import Saved from './Saved'
-import Calender from './Calender'
+import Chats from './MainPage/Chats/Chats'
+import Saved from './MainPage/Saved'
+import Calender from './MainPage/Calender'
 
 const MainPage = (props) => {
   if(props.mainPageData == "all_chats"){
@@ -14,13 +14,13 @@ const MainPage = (props) => {
   }else if(props.mainPageData == "calender"){
     return (
       <div className='main_page'>
-          <Saved />
+          <Calender />
       </div>
     )
   }else if(props.mainPageData == "saved"){
     return (
       <div className='main_page'>
-          <Calender />
+          <Saved />
       </div>
     )
   }

@@ -18,8 +18,8 @@ const add_data2 = async (tableName, id, data) =>{
 const add_data = async (tableName, data) =>{
   var curr_date = new Date
   data["created"] = curr_date.getTime()
-  const citiesRef = db.collection(tableName);
-  var log_res = await citiesRef.add(data);
+  const tableRef = db.collection(tableName);
+  var log_res = await tableRef.add(data);
   return log_res  
 }
 
@@ -40,13 +40,13 @@ const get_user_messages = async (email) =>{
   const snapshot = await citiesRef.where('contact_email', '==', email).get();
   if (snapshot.empty) {
     console.log('No matching documents.');
-    messages.push({
-      "user_email": "johann.perfit@gmail.com",
-      "created": "",
-      "type": "internal",
-      "message": "No Messages",
-      "contact_email": ""
-  })
+  //   messages.push({
+  //     "user_email": "johann.perfit@gmail.com",
+  //     "created": "",
+  //     "type": "internal",
+  //     "message": "No Messages",
+  //     "contact_email": ""
+  // })
     return messages;
   }  
 

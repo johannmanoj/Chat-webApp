@@ -14,6 +14,24 @@ app.get('/', async (req,res) =>{
 })
 
 
+app.post('/log-message', async (req,res) =>{
+    try {
+        const {user_email, contact_email, message, type} = req.body
+        console.log("data-----",user_email, contact_email, message, type);
+        var data = { 
+            "user_email": user_email, 
+            "contact_email": contact_email, 
+            "message" :message, 
+            "type" : type, 
+        }
+        var response = await firebase.add_data("messages",data)
+        // console.log("response", response);
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
 app.post('/log-user', async (req,res) =>{
     try {
         const {email, firstName, lastName, profilePic} = req.body

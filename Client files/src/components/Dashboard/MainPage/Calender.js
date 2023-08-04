@@ -1,8 +1,9 @@
 import React from 'react'
+import './Calender.css'
 
 const Calender = () => {
   return (
-    <div>Calender</div>
+    <div className='calender-text'>No Events</div>
   )
 }
 

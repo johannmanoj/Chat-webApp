@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './ChatMessages.css'
 import axios from 'axios'
+import { FaPaperPlane, FaSmileBeam} from "react-icons/fa";
 
 const ChatMessages = ({contact_details}) => {
+  const [enteredValue, setEnteredValue] = useState('');
   const [messages, setMessages] = useState([
     {
       "message":"Hi, this is John.",
@@ -38,6 +40,39 @@ const ChatMessages = ({contact_details}) => {
     get_contacts_list()
   },[contact_details])
 
+
+  const goalInputChangeHandler = event => {
+    setEnteredValue(event.target.value);
+  };
+
+  const formSubmitHandler = async (event) => {
+    event.preventDefault();
+
+    const config = {
+      method: 'post',
+      url: `http://localhost:8080/log-message`,
+      data : { 
+        "user_email": localStorage.getItem('userEmail'), 
+        "contact_email": contact_details.email, 
+        "message" :enteredValue, 
+        "type" : "internal", 
+      }
+    }
+    
+    await axios(config)
+      .then((response) => {
+        console.log("api-res-------", response.data)
+      })
+      .catch((error) => {
+        console.log("err res ========", error.response.data);
+      });
+
+    
+    setEnteredValue("")
+    // refreshPage()
+  };
+
+
   if(contact_details.email != ""){
     return (
       <div className='chatMessages-background'>
@@ -59,16 +94,21 @@ const ChatMessages = ({contact_details}) => {
                   </div>
               )
           })}
+          {messages.length == 0 && <div className='message-default-text'>No Messages</div>}
         </div>
         <div className='message-footer'>
-          <input className='message-input'></input>
+          <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler}></input>
+          <FaPaperPlane className='message-icon' onClick={formSubmitHandler} />
         </div>
   
       </div>
     )
   }else {
     return (
-      <div className='chatMessages-background'></div>
+      <div className='chatMessages-background-default'>
+        <FaSmileBeam className='message-default-logo'/>
+        <div className='message-default-text'>Hello !</div>
+      </div>
     )
   }
 }

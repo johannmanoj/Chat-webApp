@@ -3,7 +3,7 @@ import Sidebar from './Sidebar';
 import MainPage from './MainPage';
 
 import { useNavigate } from "react-router";
-import { useUserAuth } from "./UserAuthContext";
+import { useUserAuth } from "../UserAuthContext";
 
 import './Dashboard.css'
 
