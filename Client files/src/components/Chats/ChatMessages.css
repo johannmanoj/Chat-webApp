@@ -42,34 +42,36 @@
     display: flex;
     justify-content: end;
     margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .chat-message-external-align{
     display: flex;
     justify-content: start;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .chat-message-internal{
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
     width:200px;
     height: 40px;
     background-color: grey;
     color: white;
     border-radius: 10px;
-    text-align: center;
-    
 }
 
 .chat-message-external{
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
     width:200px;
     height: 40px;
     background-color: rgb(100, 99, 99);
     color: white;
     border-radius: 10px;
+}
+
+.message-text{
+    margin-left: 20px;
+    margin-top: 5px;
 }
 
 

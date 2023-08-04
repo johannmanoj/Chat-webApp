@@ -52,7 +52,9 @@ const ChatMessages = ({contact_details}) => {
               return(
                   <div className={singleMessage.type == "internal" ? 'chat-message-internal-align' : 'chat-message-external-align'}>
                       <div  className={singleMessage.type == "internal" ? 'chat-message-internal' : 'chat-message-external'} > 
-                          {singleMessage.message}
+                          <div className={'message-text'}>
+                            {singleMessage.message}
+                          </div>
                       </div>
                   </div>
               )
