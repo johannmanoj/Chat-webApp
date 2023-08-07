@@ -8,17 +8,22 @@ const ChatMessages = ({contact_details}) => {
   const [messages, setMessages] = useState([
     {
       "message":"Hi, this is John.",
-      "type":"internal"
+      "type":"internal",
+      "created":"1690870585888"
     },
     {
       "message":"Hello",
-      "type":"external"
+      "type":"external",
+      "created":"1690870585888"
     },
     {
       "message":"How are you doing ?",
-      "type":"internal"
+      "type":"internal",
+      "created":"1690870585888"
     },
   ])
+
+  const [submitstate, setSubmitstate] = useState(false)
 
   useEffect(() =>{
     const get_contacts_list = async () =>{
@@ -29,7 +34,7 @@ const ChatMessages = ({contact_details}) => {
       }
       await axios(config)
         .then((response) => {
-          
+          console.log("response++++++++++", response.data);
           setMessages(response.data)
         })
         .catch((error) => {
@@ -38,8 +43,9 @@ const ChatMessages = ({contact_details}) => {
     }
 
     get_contacts_list()
-  },[contact_details])
+  },[contact_details, submitstate])
 
+  console.log("messages----------",messages);
 
   const goalInputChangeHandler = event => {
     setEnteredValue(event.target.value);
@@ -62,6 +68,7 @@ const ChatMessages = ({contact_details}) => {
     await axios(config)
       .then((response) => {
         console.log("api-res-------", response.data)
+        setSubmitstate(!submitstate)
       })
       .catch((error) => {
         console.log("err res ========", error.response.data);

@@ -61,6 +61,7 @@ app.get('/get-user-list', async (req,res) =>{
 
 app.post('/get-user-messages', async (req,res) =>{
     try {
+        console.log("messages api called");
         const {email} = req.body
         var response = await firebase.get_user_messages(email)
         res.status(200).send(response)

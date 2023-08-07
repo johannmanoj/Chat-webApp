@@ -54,7 +54,7 @@ const get_user_messages = async (email) =>{
     // console.log(doc.id, '=>', doc.data());
     messages.push(doc.data())
   });
-  // console.log("messages", messages);
+  console.log("messages", messages);
   return messages
 }
 

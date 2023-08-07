@@ -91,11 +91,19 @@
     width: 93%;
     height: 25px;
     background-color: #414755;
+    color: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    background-color: #4a5161;
+    text-indent: 15px;
 }
 
 .message-icon {
-    /* margin-top: 15px;
-    margin-left: 20px; */
     margin-left: 25px;
     margin-top: 15px;
     color: white;
@@ -103,9 +111,6 @@
     width: 25px;
 }
 
-.message-icon:hover{
-    color: rgb(198, 197, 197);
-}
 
 
 .chatMessages-background-default{
