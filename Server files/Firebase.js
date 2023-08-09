@@ -34,27 +34,19 @@ const get_data = async () =>{
   return data
 }
 
+
 const get_user_messages = async (email) =>{
   const messages = []
   const citiesRef = db.collection('messages');
-  const snapshot = await citiesRef.where('contact_email', '==', email).get();
-  if (snapshot.empty) {
-    console.log('No matching documents.');
-  //   messages.push({
-  //     "user_email": "johann.perfit@gmail.com",
-  //     "created": "",
-  //     "type": "internal",
-  //     "message": "No Messages",
-  //     "contact_email": ""
-  // })
-    return messages;
-  }  
-
+  const snapshot = await citiesRef.where('contact_email', '==', email).orderBy('created','asc').get();
+  
   snapshot.forEach(doc => {
     // console.log(doc.id, '=>', doc.data());
     messages.push(doc.data())
   });
-  console.log("messages", messages);
+
+  // console.log("messages", messages);
+  
   return messages
 }
 
