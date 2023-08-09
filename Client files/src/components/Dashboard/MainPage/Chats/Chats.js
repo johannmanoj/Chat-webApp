@@ -2,7 +2,7 @@ import React , { useState , useEffect}  from 'react'
 import './Chats.css'
 import ChatSidebarItem from './ChatSidebarItem'
 import ChatMessages from './ChatMessages';
-import { FaSearch} from "react-icons/fa";
+import { FaSearch, FaEllipsisV} from "react-icons/fa";
 import axios from 'axios';
 
 const Chats = () => {
@@ -50,6 +50,7 @@ const Chats = () => {
         <div className='chat-sidebar-header'>
           <FaSearch className='chat-sidebar-icon'/>
           <input className="chat-search-bar" placeholder='Search'></input>
+          <FaEllipsisV className='chat-sidebar-icon'/>
         </div>
         
         {contactList.map((user) => (

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './ChatMessages.css'
 import axios from 'axios'
-import { FaPaperPlane, FaSmileBeam} from "react-icons/fa";
+import { FaPaperPlane, FaSmileBeam, FaYinYang} from "react-icons/fa";
 
 const ChatMessages = ({contact_details}) => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -106,7 +106,7 @@ const ChatMessages = ({contact_details}) => {
           {messages.length == 0 && <div className='message-default-text'>No Messages</div>}
         </div>
         <div className='message-footer'>
-          <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler}></input>
+          <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler} placeholder='Type a message'></input>
           <FaPaperPlane className='message-icon' onClick={formSubmitHandler} />
         </div>
   
@@ -115,8 +115,8 @@ const ChatMessages = ({contact_details}) => {
   }else {
     return (
       <div className='chatMessages-background-default'>
-        <FaSmileBeam className='message-default-logo'/>
-        <div className='message-default-text'>Hello !</div>
+        <FaYinYang className='message-default-logo'/>
+        <div className='message-default-text'>SyncUp</div>
       </div>
     )
   }
