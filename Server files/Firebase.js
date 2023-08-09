@@ -9,15 +9,31 @@ initializeApp({
 
 const db = getFirestore();
 
-const add_data2 = async (tableName, id, data) =>{
-  const citiesRef = db.collection(tableName);
-  var log_res = await citiesRef.doc(id).set(data);
-  return log_res  
+const date_formatting = async (date) =>{
+  var currentTime = new Date(parseInt(date));
+
+  var currentOffset = currentTime.getTimezoneOffset();
+  var ISTOffset = 330;   // IST offset UTC +5:30 
+  var ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
+
+  var hoursIST = ISTTime.getHours()
+  var minutesIST = ISTTime.getMinutes()
+  const year = ISTTime.getFullYear();
+  const month = ISTTime.getMonth() + 1;
+  const day = ISTTime.getDate();
+
+  const req_date = [day, month, year ].join('/');
+
+
+  console.log(req_date," ", hoursIST,":", minutesIST)
+  return req_date + " " + hoursIST + ":" + minutesIST
 }
+
 
 const add_data = async (tableName, data) =>{
   var curr_date = new Date
   data["created"] = curr_date.getTime()
+  data["time_stamp"] = await date_formatting(curr_date.getTime())
   const tableRef = db.collection(tableName);
   var log_res = await tableRef.add(data);
   return log_res  

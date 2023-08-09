@@ -135,5 +135,9 @@ button:focus {
     font-size: 40px;
 }
 
+.message-timestamp{
+    color: white;
+}
+
 
 

@@ -45,7 +45,7 @@ const ChatMessages = ({contact_details}) => {
     get_contacts_list()
   },[contact_details, submitstate])
 
-  console.log("messages----------",messages);
+  // console.log("messages----------",messages);
 
   const goalInputChangeHandler = event => {
     setEnteredValue(event.target.value);
@@ -79,7 +79,6 @@ const ChatMessages = ({contact_details}) => {
     // refreshPage()
   };
 
-
   if(contact_details.email != ""){
     return (
       <div className='chatMessages-background'>
@@ -93,11 +92,14 @@ const ChatMessages = ({contact_details}) => {
           {messages.map((singleMessage)=>{
               return(
                   <div className={singleMessage.type == "internal" ? 'chat-message-internal-align' : 'chat-message-external-align'}>
-                      <div  className={singleMessage.type == "internal" ? 'chat-message-internal' : 'chat-message-external'} > 
-                          <div className={'message-text'}>
-                            {singleMessage.message}
-                          </div>
-                      </div>
+                    <div  className={singleMessage.type == "internal" ? 'chat-message-internal' : 'chat-message-external'} > 
+                        <div className={'message-text'}>
+                          {singleMessage.message}<br/>
+                        </div>
+                    </div><br/>
+                    <div className='message-timestamp'>
+                      {singleMessage.time_stamp}
+                    </div>  
                   </div>
               )
           })}
