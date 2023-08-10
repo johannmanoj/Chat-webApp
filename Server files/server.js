@@ -8,10 +8,10 @@ app.use(express.urlencoded({extended : true}));
 const firebase = require('./Firebase')
 
 
-
 app.get('/', async (req,res) =>{
     res.send("Hello World")
 })
+
 
 
 app.post('/log-message', async (req,res) =>{
@@ -42,8 +42,18 @@ app.post('/log-user', async (req,res) =>{
             "lastName" : lastName, 
             "profilePic": profilePic 
         }
-        var response = await firebase.add_data("users",email,data)
+        var response = await firebase.check_and_log_user(email,data)
         // console.log("response", response);
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
+app.post('/get-user-data', async (req,res) =>{
+    try {
+        const {email} = req.body
+        var response = await firebase.get_user_data(email)
         res.status(200).send(response)
     } catch (error) {
         res.status(500).send(error)

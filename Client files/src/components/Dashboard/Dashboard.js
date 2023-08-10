@@ -15,6 +15,8 @@ const Dashboard = () => {
     try {
       await logOut();
       localStorage.removeItem("userEmail")
+      localStorage.removeItem("displayName")
+      localStorage.removeItem("photoURL")
       navigate("/");
     } catch (error) {
       console.log(error.message);
