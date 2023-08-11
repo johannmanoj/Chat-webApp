@@ -1,5 +1,4 @@
 import "./LogoutPopup.css";
-import logoutImage from '../../images/logout.jpg'
 import { FaDoorOpen } from "react-icons/fa";
 
 const CustomPopup = (props) => {

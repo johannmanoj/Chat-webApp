@@ -106,7 +106,7 @@ const ChatMessages = ({contact_details}) => {
           {messages.length == 0 && <div className='message-default-text'>No Messages</div>}
         </div>
         <div className='message-footer'>
-          <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler} placeholder='Type a message'></input>
+          <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler} placeholder='Type a message' autofocus></input>
           <FaPaperPlane className='message-icon' onClick={formSubmitHandler} />
         </div>
   

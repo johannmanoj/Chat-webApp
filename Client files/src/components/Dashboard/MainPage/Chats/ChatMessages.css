@@ -89,10 +89,14 @@
     margin-left: 20px;
     margin-bottom: 10px;
     width: 93%;
-    height: 25px;
+    height: 30px;
     background-color: #414755;
     color: white;
+    border: none;
+    outline: inherit;
 }
+
+
 
 input:focus,
 select:focus,
