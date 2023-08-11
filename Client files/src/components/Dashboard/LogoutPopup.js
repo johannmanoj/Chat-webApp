@@ -1,6 +1,6 @@
 import "./LogoutPopup.css";
 import logoutImage from '../../images/logout.jpg'
-
+import { FaDoorOpen } from "react-icons/fa";
 
 const CustomPopup = (props) => {
     const onClickHandler = () =>{
@@ -9,18 +9,13 @@ const CustomPopup = (props) => {
     
       return(
         <div>
-          <div className='backdrop' onClick={onClickHandler}/>
+          <div className='backdrop' />
           <div className='modal'>
-            {/* <header className='header'>
-              <h3>Calender</h3>
-            </header> */}
-
-            <img className="logout-image" src= {logoutImage} />
-            <p>Are you sure you want to Log out?</p>
-            <footer className='actions'>
-              <button className='button' onClick={() => props.logoutFunc()}>Yes</button>
-              <button className='button' onClick={onClickHandler}>Cancel</button>
-            </footer>
+            <FaDoorOpen className="logout-door-icon"/>
+            {/* <h2 className="header">Already leaving?</h2> */}
+            <div className="header">Already leaving?</div>
+            <button className='logout-button-1' onClick={() => props.logoutFunc()}>Yes, Log out</button>
+            <button className='logout-button-2' onClick={onClickHandler}>No, I am staying</button>
           </div>
         </div>
       )
