@@ -52,6 +52,43 @@ const log_user_data = async (email, data) =>{
   return log_res  
 }
 
+const add_contact = async (user, email) =>{
+  var user_data = await check_user_email(email)
+  console.log(user_data);
+
+  if(user_data.length > 0){
+    var curr_date = new Date
+    var req_data = {
+      "created":curr_date.getTime(),
+      "time_stamp":await date_formatting(curr_date.getTime()),
+      "user":user,
+      "contact_email":user_data[0]["email"],
+      "firstName":user_data[0]["firstName"],
+      "lastName":user_data[0]["lastName"],
+      "profilePic":user_data[0]["profilePic"]
+    }
+   
+    const tableRef = db.collection("contacts");
+    var log_res = await tableRef.add(req_data);
+
+    return {statuscode:200, "data":log_res}
+  }
+  
+  return {"statuscode":201, "data":"user not found"}  
+}
+
+const get_contacts_list = async (email) =>{
+  const contacts = []
+  const tableRef = db.collection('contacts');
+  const snapshot = await tableRef.where('user', '==', email).get();
+  snapshot.forEach(doc => {
+    contacts.push(doc.data())
+  });
+
+  console.log("messages", contacts);
+  return contacts
+}
+
 const add_data = async (tableName, data) =>{
   var curr_date = new Date
   data["created"] = curr_date.getTime()
@@ -120,4 +157,5 @@ const get_user_data = async (email) =>{
 }
 
 
-module.exports = {add_data, get_data, get_user_messages, check_and_log_user, get_user_data}
+
+module.exports = {add_data, get_data, get_user_messages, check_and_log_user, get_user_data, add_contact, get_contacts_list}

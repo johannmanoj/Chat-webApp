@@ -50,6 +50,28 @@ app.post('/log-user', async (req,res) =>{
     }
 })
 
+app.post('/log-contact', async (req,res) =>{
+    try {
+        const {user, email} = req.body
+        var response = await firebase.add_contact(user, email)
+       
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
+app.post('/get-user-contacts', async (req,res) =>{
+    try {
+        
+        const {user} = req.body
+        var response = await firebase.get_contacts_list(user)
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
 app.post('/get-user-data', async (req,res) =>{
     try {
         const {email} = req.body
@@ -71,7 +93,6 @@ app.get('/get-user-list', async (req,res) =>{
 
 app.post('/get-user-messages', async (req,res) =>{
     try {
-        console.log("messages api called");
         const {email} = req.body
         var response = await firebase.get_user_messages(email)
         res.status(200).send(response)
