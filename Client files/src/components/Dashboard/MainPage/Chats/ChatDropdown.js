@@ -9,8 +9,12 @@ const ChatDropdown = (props) => {
             <div className='chat-dropdown-backdrop' onClick= {() => props.setDropdownVisibility(false)}/>
 
             <div className='chat-dropdown-modal'>
-                <div>Add Contact</div>
-                <div>Settings</div>
+                <div className="add-contact-menu">
+                   <div className="add-contact-menu-item">Add Contact</div> 
+                </div>
+                <div className="settings-menu">
+                    <div className="settings-menu-item">Settings</div>
+                </div>
             </div>
         </div>
     )

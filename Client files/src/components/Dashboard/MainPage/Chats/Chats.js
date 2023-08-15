@@ -13,12 +13,14 @@ const Chats = () => {
 
   const [dropdownVisibility, setDropdownVisibility] = useState(false)
 
+  console.log("contactList",contactList);
+
   useEffect(() =>{
     const get_contacts_list = async () =>{
       const config = {
-        method: 'get',
-        url: `http://localhost:8080/get-user-list`,
-        // data : {"date" :props.req_date}
+        method: 'post',
+        url: `http://localhost:8080/get-user-contacts`,
+        data : {"user" :localStorage.getItem("userEmail")}
       }
       await axios(config)
         .then((response) => {
@@ -36,10 +38,14 @@ const Chats = () => {
     <div className='Chats' >
       <div className='chat-sidebar'>
         <div className='chat-sidebar-header'>
-          <FaSearch className='chat-sidebar-icon'/>
-          <input className="chat-search-bar" placeholder='Search'></input>
+          <div className='chat-heading'>Chats</div>
           <FaEllipsisV className = {dropdownVisibility ? 'chat-sidebar-icon2' : 'chat-sidebar-icon'} onClick={() => setDropdownVisibility(!dropdownVisibility)}/>
           {dropdownVisibility && <ChatDropdown setDropdownVisibility = {setDropdownVisibility} />}
+        </div>
+        <div className='chat-sidebar-search'>
+          <FaSearch className='chat-sidebar-icon'/>
+          <input className="chat-search-bar" placeholder='Search'></input>
+          
         </div>
 
         {contactList.map((user) => (

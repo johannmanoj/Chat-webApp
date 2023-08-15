@@ -85,7 +85,7 @@ const get_contacts_list = async (email) =>{
     contacts.push(doc.data())
   });
 
-  console.log("messages", contacts);
+  console.log("contacts", contacts);
   return contacts
 }
 

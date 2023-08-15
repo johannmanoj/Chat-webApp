@@ -14,8 +14,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-top: 8vh;
-left: -8vw;
+top: 10vh;
+left: -7vw;
 width: 150px;
 height: 100px;
 margin-left: 20%;
@@ -26,6 +26,45 @@ background: #7e7e7e;
 border-radius: 5px;
 }
 
+.add-contact-menu{  
+    color: white;
+    width: 90%;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.add-contact-menu:hover{
+    background-color: rgb(87, 52, 9);
+}
+
+.add-contact-menu-item{
+    margin-left: 10px;
+}
+
+.settings-menu{
+    color: white;
+    width: 90%;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.settings-menu:hover{
+    background-color: rgb(87, 52, 9);
+}
+
+.settings-menu-item{
+    margin-left: 10px;
+}
 
 
 
