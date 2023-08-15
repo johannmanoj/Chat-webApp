@@ -2,9 +2,10 @@ import React , { useState , useEffect}  from 'react'
 import './Chats.css'
 import ChatSidebarItem from './ChatSidebarItem'
 import ChatMessages from './ChatMessages';
-import { FaSearch, FaEllipsisV} from "react-icons/fa";
+import { FaSearch, FaEllipsisV, FaEdit} from "react-icons/fa";
 import axios from 'axios';
 import ChatDropdown from './ChatDropdown';
+import AddContactDropdown from './AddContactDropdown';
 
 const Chats = () => {
   const [contactList, setContactList] = useState([])
@@ -12,8 +13,7 @@ const Chats = () => {
   const [selectedContactDetails, setSelectedContactDetails] = useState()
 
   const [dropdownVisibility, setDropdownVisibility] = useState(false)
-
-  console.log("contactList",contactList);
+  const [AddContactDropdownVisibility, setAddContactDropdownVisibility] = useState(false)
 
   useEffect(() =>{
     const get_contacts_list = async () =>{
@@ -37,15 +37,18 @@ const Chats = () => {
   return (
     <div className='Chats' >
       <div className='chat-sidebar'>
+
         <div className='chat-sidebar-header'>
-          <div className='chat-heading'>Chats</div>
+          <h1 className='chat-heading'>Chats</h1>
+          <FaEdit className='chat-add-icon' onClick={() => setAddContactDropdownVisibility(!AddContactDropdownVisibility)}/>
           <FaEllipsisV className = {dropdownVisibility ? 'chat-sidebar-icon2' : 'chat-sidebar-icon'} onClick={() => setDropdownVisibility(!dropdownVisibility)}/>
           {dropdownVisibility && <ChatDropdown setDropdownVisibility = {setDropdownVisibility} />}
+          {AddContactDropdownVisibility && <AddContactDropdown setAddContactDropdownVisibility = {setAddContactDropdownVisibility} />}
         </div>
+
         <div className='chat-sidebar-search'>
-          <FaSearch className='chat-sidebar-icon'/>
           <input className="chat-search-bar" placeholder='Search'></input>
-          
+          <FaSearch className='chat-sidebar-search-icon'/>
         </div>
 
         {contactList.map((user) => (

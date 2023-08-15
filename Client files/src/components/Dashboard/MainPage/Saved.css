@@ -6,3 +6,89 @@
     color: rgb(219, 219, 219);
     height: 100%;
 }
+
+.Saved{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .save-sidebar{
+    width: 313.5px;
+    height: 97.5vh;
+    background-color: #2e333d;
+  }
+  
+  .save-sidebar-header{
+    height: 50px;
+    margin-top: 10px;
+    display: flex;
+    color: white;
+    align-items: center;
+    /* background-color: #2048a7; */
+  }
+  
+  .save-heading{
+    margin-left: 20px;
+    width: 80%;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size:30px;
+  }
+  
+  .save-sidebar-search{
+    margin-top: 10px;
+    display: flex;
+    /* background-color: antiquewhite; */
+    align-items: center;
+  }
+  
+  .save-search-bar{
+    border-style: solid;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width:75%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #414755;
+    border-color: #414755;
+    color: white;
+  }
+  
+  .save-sidebar-search-icon{  
+    margin-right: 10px;
+    margin-left: 15px;
+    color: white;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .save-sidebar-icon{  
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+    height: 20px;
+    width: 20px;
+  }
+
+  .save-messages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size:25px;
+    color: white;
+    width: 70%;
+    height: 97.5vh;
+    margin: 0;
+    padding: 0;
+  
+  }
+  
+
+  
+  
+  
+  
+  

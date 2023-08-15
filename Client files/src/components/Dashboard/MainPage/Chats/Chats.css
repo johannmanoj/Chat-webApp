@@ -1,12 +1,12 @@
 .Chats{
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .chat-sidebar{
-    width: 320px;
-    height: 97.5vh;
-    background-color: #2e333d;
+  width: 400px;
+  height: 97.5vh;
+  background-color: #2e333d;
 }
 
 .chat-sidebar-header{
@@ -15,38 +15,60 @@
   display: flex;
   color: white;
   align-items: center;
-  background-color: #2048a7;
 }
 
 .chat-heading{
   margin-left: 20px;
+  width: 67%;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size:30px;
 }
 
 .chat-sidebar-search{
   margin-top: 10px;
   display: flex;
+  /* background-color: antiquewhite; */
+  align-items: center;
 }
 
 .chat-messages{
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    width: 80vw;
-    height: 97.5vh;
-    /* background-color: #414755; */
-    background-color: #2048a7;
-    text-align: center;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 80vw;
+  height: 97.5vh;
+  /* background-color: #414755; */
+  background-color: #2048a7;
+  text-align: center;
 }
 
 .chat-search-bar{
-    border-style: solid;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width:210px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: #414755;
-    border-color: #414755;
-    color: white;
+  border-style: solid;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  width:75%;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #414755;
+  border-color: #414755;
+  color: white;
+}
+
+.chat-sidebar-search-icon{  
+  margin-right: 10px;
+  margin-left: 15px;
+  color: white;
+  height: 20px;
+  width: 20px;
+}
+
+.chat-add-icon{  
+  margin-right: 10px;
+  margin-left: 10px;
+  color: white;
+  height: 20px;
+  width: 20px;
 }
 
 .chat-sidebar-icon{  
@@ -75,27 +97,3 @@
 
 
 
-.dropdown {
-    display: inline-block;
-    position: relative;
-  }
-  .dropdown-content {
-    display: flex;
-    /* position: absolute; */
-    width: 100%;
-    overflow: auto;
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
-  }
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  .dropdown-content a {
-    display: block;
-    color: #000000;
-    padding: 5px;
-    text-decoration: none;
-  }
-  .dropdown-content a:hover {
-    color: #FFFFFF;
-    background-color: #00A4BD;
-  }
