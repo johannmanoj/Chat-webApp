@@ -105,7 +105,7 @@ const check_user_email = async (email) =>{
   snapshot.forEach(doc => {
     data.push(doc.data())
   });
-
+  console.log("data---",data);
   return data
 }
 
@@ -158,4 +158,4 @@ const get_user_data = async (email) =>{
 
 
 
-module.exports = {add_data, get_data, get_user_messages, check_and_log_user, get_user_data, add_contact, get_contacts_list}
+module.exports = {add_data, get_data, get_user_messages, check_and_log_user, get_user_data, add_contact, get_contacts_list, check_user_email}
