@@ -17,7 +17,7 @@
     top: 10vh;
     left: -5.9vw;
     width: 300px;
-    height: 300px;
+    height: 200px;
     margin-left: 20%;
     margin-right: 15%;
     z-index: 100;
@@ -45,11 +45,11 @@
     margin-top: 10px;
     /* background-color: bisque; */
     width: 90%;
-    height: 200px
+    height: 130px
 }
 
 .add-contact-search-result-item{
-    background-color: rgb(63, 63, 63);
+    background-color: rgb(105, 105, 105);
     display: flex;
     align-items: center;
     height: 50px;
@@ -58,13 +58,31 @@
 
 .add-contact-search-result-item-name{
     margin-left: 10px;
-    margin-right: 85px;
+    width: 220px;
+    /* background-color: blue; */
+}
+
+.add-contact-search-result-empty{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .add-contact-header{
     width: 100%;
     display: flex;   
     align-items: center;
+}
+
+.add-contact-plus-icon{
+    width: 23px;
+    height: 23px;
+}
+
+.add-contact-plus-icon:hover{
+    color: red;
 }
 
 
