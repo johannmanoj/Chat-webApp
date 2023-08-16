@@ -49,7 +49,16 @@
 }
 
 .add-contact-search-result-item{
-        
+    background-color: black;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.add-contact-search-result-item-name{
+    margin-left: 10px;
+    margin-right: 85px;
 }
 
 .add-contact-header{

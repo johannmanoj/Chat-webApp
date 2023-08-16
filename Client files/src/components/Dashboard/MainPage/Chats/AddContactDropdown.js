@@ -8,6 +8,8 @@ const AddContactDropdown = (props) => {
     const [contactSearch, setContactSearch] = useState([])
     const [searchName, setSearchName] = useState("")
 
+    const [searchShow, setSearchShow] = useState(false)
+
 
 
     const nameChangeHandler = (event) =>{ setSearchName(event.target.value) }
@@ -38,6 +40,7 @@ const AddContactDropdown = (props) => {
           }
           await axios(config)
             .then((response) => {
+              setSearchShow(true)
               setContactSearch(response.data)
             })
             .catch((error) => {
@@ -61,10 +64,11 @@ const AddContactDropdown = (props) => {
                 
           
                 <div className="add-contact-search-result">
-                    <div className="add-contact-search-result-item">
-                        {contactSearch.length > 0 ? contactSearch[0]["email"] : "No such contact"}
+                    {searchShow && <div className="add-contact-search-result-item">
+                        <div className="add-contact-search-result-item-name">{contactSearch.length > 0 ? contactSearch[0]["email"] : "No contact found"}</div>
                         { contactSearch.length > 0 && <button onClick={() => add_contact()}>Add</button>}
-                    </div>
+                    </div>}
+                    {!searchShow && "Search"}
                 </div>
             </div>
         </div>
