@@ -25,6 +25,10 @@ const ChatMessages = ({contact_details}) => {
 
   const [submitstate, setSubmitstate] = useState(false)
 
+  
+
+  // console.log("messages--------",messages);
+
   useEffect(() =>{
     const get_contacts_list = async () =>{
       const config = {
@@ -45,11 +49,7 @@ const ChatMessages = ({contact_details}) => {
     get_contacts_list()
   },[contact_details, submitstate])
 
-  // console.log("messages----------",messages);
-
-  const goalInputChangeHandler = event => {
-    setEnteredValue(event.target.value);
-  };
+  const goalInputChangeHandler = event => { setEnteredValue(event.target.value) };
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
@@ -76,12 +76,12 @@ const ChatMessages = ({contact_details}) => {
 
     
     setEnteredValue("")
-    // refreshPage()
   };
 
   if(contact_details.email != ""){
     return (
       <div className='chatMessages-background'>
+
         <div className='chat-message-header'>
           <img className='chat-message-profile-pic' src={contact_details.profilePic} />
           {/* <div className='chat-message-profile-pic'></div> */}
@@ -103,7 +103,13 @@ const ChatMessages = ({contact_details}) => {
                   </div>
               )
           })}
-          {messages.length == 0 && <div className='message-default-text'>No Messages</div>}
+          {messages.length == 0 && 
+            <div className='message-default-text-background'>
+              <div className='message-default-text'>
+                No Messages
+              </div>
+            </div>
+          }
         </div>
         <div className='message-footer'>
           <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler} placeholder='Type a message' autofocus></input>

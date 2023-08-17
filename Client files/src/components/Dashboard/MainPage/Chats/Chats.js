@@ -32,7 +32,7 @@ const Chats = () => {
     }
 
     get_contacts_list()
-  },[])
+  },[contactList])
 
   return (
     <div className='Chats' >

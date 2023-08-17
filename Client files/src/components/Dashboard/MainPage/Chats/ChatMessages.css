@@ -108,7 +108,7 @@ button:focus {
 }
 
 .message-icon {
-    margin-left: 25px;
+    margin-left: 15px;
     margin-top: 15px;
     color: white;
     height: 25px;
@@ -137,6 +137,14 @@ button:focus {
     margin-left: 20px;
     color: rgb(219, 219, 219);
     font-size: 40px;
+}
+
+.message-default-text-background{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .message-timestamp{
