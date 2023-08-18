@@ -32,6 +32,31 @@
   align-items: center;
 }
 
+.search-bar-background{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #414755;
+  height: 40px;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.chat-search-bar{
+  border-style: solid;
+  /* margin-top: 10px; */
+  /* margin-left: 20px; */
+  /* margin-bottom: 10px; */
+  width:75%;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #414755;
+  border-color: #414755;
+  color: white;
+}
+
 .chat-messages{
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
@@ -42,18 +67,7 @@
   text-align: center;
 }
 
-.chat-search-bar{
-  border-style: solid;
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-bottom: 10px;
-  width:75%;
-  height: 30px;
-  border-radius: 10px;
-  background-color: #414755;
-  border-color: #414755;
-  color: white;
-}
+
 
 .chat-sidebar-search-icon{  
   margin-right: 10px;

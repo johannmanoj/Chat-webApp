@@ -2,7 +2,7 @@ import React , { useState , useEffect}  from 'react'
 import './Chats.css'
 import ChatSidebarItem from './ChatSidebarItem'
 import ChatMessages from './ChatMessages';
-import { FaSearch, FaEllipsisV, FaEdit} from "react-icons/fa";
+import { FaSearch, FaEllipsisV, FaEdit, FaTimes} from "react-icons/fa";
 import axios from 'axios';
 import ChatDropdown from './ChatDropdown';
 import AddContactDropdown from './AddContactDropdown';
@@ -47,9 +47,11 @@ const Chats = () => {
     }
 
     get_search_contacts_list()
-  },[searchText])
-
+  },[searchText, contactList])
+  
   const nameChangeHandler = (event) =>{ setSearchText(event.target.value) }
+
+  
 
   return (
     <div className='Chats' >
@@ -64,8 +66,10 @@ const Chats = () => {
         </div>
 
         <div className='chat-sidebar-search'>
-          <input className="chat-search-bar" placeholder='Search' onChange={nameChangeHandler}></input>
-          <FaSearch className='chat-sidebar-search-icon'/>
+          <div className='search-bar-background'>
+            <input className="chat-search-bar" placeholder='Search' onChange={nameChangeHandler} id="searchInput"></input>
+            {searchText.length > 0 ? <FaTimes className='chat-sidebar-search-icon' /> : <FaSearch className='chat-sidebar-search-icon'/>}
+          </div>
         </div>
 
         {searchContact.map((user) => (
