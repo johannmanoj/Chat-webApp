@@ -105,7 +105,7 @@ const check_user_email = async (email) =>{
   snapshot.forEach(doc => {
     data.push(doc.data())
   });
-  console.log("data---",data);
+  // console.log("data---",data);
   return data
 }
 
@@ -132,7 +132,7 @@ const get_user_messages = async (email) =>{
     messages.push(doc.data())
   });
 
-  // console.log("messages", messages);
+  console.log("messages", messages);
   return messages
 }
 

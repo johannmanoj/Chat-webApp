@@ -10,10 +10,14 @@ import AddContactDropdown from './AddContactDropdown';
 const Chats = () => {
   const [contactList, setContactList] = useState([])
   const [selectedContact, setSelectedContact] = useState({"email":"", "name":"", "profilePic":""})
-  const [selectedContactDetails, setSelectedContactDetails] = useState()
+  // const [selectedContactDetails, setSelectedContactDetails] = useState()
 
   const [dropdownVisibility, setDropdownVisibility] = useState(false)
   const [AddContactDropdownVisibility, setAddContactDropdownVisibility] = useState(false)
+
+  const [searchContact, setSearchContact] = useState([])
+  const [searchText, setSearchText] = useState("")
+
 
   useEffect(() =>{
     const get_contacts_list = async () =>{
@@ -32,7 +36,20 @@ const Chats = () => {
     }
 
     get_contacts_list()
-  },[contactList])
+  },[])
+
+  useEffect(() =>{
+    const get_search_contacts_list = async () =>{
+      var data_list = []
+      var req_data = contactList.filter(x => x.firstName.toLowerCase().includes(searchText.toLowerCase()))
+
+      setSearchContact(req_data)
+    }
+
+    get_search_contacts_list()
+  },[searchText])
+
+  const nameChangeHandler = (event) =>{ setSearchText(event.target.value) }
 
   return (
     <div className='Chats' >
@@ -47,13 +64,13 @@ const Chats = () => {
         </div>
 
         <div className='chat-sidebar-search'>
-          <input className="chat-search-bar" placeholder='Search'></input>
+          <input className="chat-search-bar" placeholder='Search' onChange={nameChangeHandler}></input>
           <FaSearch className='chat-sidebar-search-icon'/>
         </div>
 
-        {contactList.map((user) => (
-          <div onClick={() =>  setSelectedContact({"email":user.email, "name":user.firstName, "profilePic":user.profilePic})}>
-            <ChatSidebarItem user_name = {user.firstName} user_pic = {user.profilePic} user_email = {user.email} />
+        {searchContact.map((user) => (
+          <div key={Math.random(100000)} onClick={() =>  setSelectedContact({"email":user.contact_email, "name":user.firstName, "profilePic":user.profilePic})}>
+            <ChatSidebarItem user_name = {user.firstName} user_pic = {user.profilePic} user_email = {user.contact_email} />
           </div>
         ))}
         

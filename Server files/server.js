@@ -94,7 +94,9 @@ app.get('/get-user-list', async (req,res) =>{
 
 app.post('/get-user-messages', async (req,res) =>{
     try {
+        console.log("message api called"), req.body;
         const {email} = req.body
+        console.log("email",email);
         var response = await firebase.get_user_messages(email)
         res.status(200).send(response)
     } catch (error) {
@@ -103,6 +105,7 @@ app.post('/get-user-messages', async (req,res) =>{
 })
 
 app.post('/email-search', async (req,res) =>{
+    
     try {
         console.log("apicllll");
         const {email} = req.body

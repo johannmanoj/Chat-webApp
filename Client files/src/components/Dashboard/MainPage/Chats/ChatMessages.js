@@ -25,10 +25,6 @@ const ChatMessages = ({contact_details}) => {
 
   const [submitstate, setSubmitstate] = useState(false)
 
-  
-
-  // console.log("messages--------",messages);
-
   useEffect(() =>{
     const get_contacts_list = async () =>{
       const config = {
@@ -38,7 +34,6 @@ const ChatMessages = ({contact_details}) => {
       }
       await axios(config)
         .then((response) => {
-          console.log("response++++++++++", response.data);
           setMessages(response.data)
         })
         .catch((error) => {
@@ -47,7 +42,7 @@ const ChatMessages = ({contact_details}) => {
     }
 
     get_contacts_list()
-  },[contact_details, submitstate])
+  },[contact_details.email, submitstate])
 
   const goalInputChangeHandler = event => { setEnteredValue(event.target.value) };
 
@@ -97,9 +92,9 @@ const ChatMessages = ({contact_details}) => {
                           {singleMessage.message}<br/>
                         </div>
                     </div><br/>
-                    <div className='message-timestamp'>
+                    {/* <div className='message-timestamp'>
                       {singleMessage.time_stamp}
-                    </div>  
+                    </div>   */}
                   </div>
               )
           })}
@@ -112,7 +107,7 @@ const ChatMessages = ({contact_details}) => {
           }
         </div>
         <div className='message-footer'>
-          <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler} placeholder='Type a message' autofocus></input>
+          <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler} placeholder='Type a message' ></input>
           <FaPaperPlane className='message-icon' onClick={formSubmitHandler} />
         </div>
   
