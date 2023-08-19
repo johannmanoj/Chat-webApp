@@ -17,21 +17,31 @@
     top: 10vh;
     left: -5.9vw;
     width: 300px;
-    height: 200px;
+    height: 250px;
     margin-left: 20%;
     margin-right: 15%;
     z-index: 100;
     overflow: hidden;
-    background: #7e7e7e;
+    background: #2a2f38;
     border-radius: 5px;
 }
 
+.add-contact-title{
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size:25px;
+    margin-bottom: 15px;
+    margin-right: 152px;
+}
+
 .add-contact-search{
-    margin-left: 10px;
-    width: 80%;
+    width: 200px;
     height: 25px;
     border-radius: 5px;
     border-style: solid;
+    background-color: #414755;
+    border-color: #414755;
+    color: white;
 }
 
 .add-contact-search-icon{
@@ -74,6 +84,17 @@
     width: 100%;
     display: flex;   
     align-items: center;
+    justify-content: center;
+}
+
+.add-contact-header-background{
+    background-color: #414755;
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 10px;
+    width: 80%;
 }
 
 .add-contact-plus-icon{

@@ -56,7 +56,7 @@ const Chats = () => {
   return (
     <div className='Chats' >
       <div className='chat-sidebar'>
-
+        
         <div className='chat-sidebar-header'>
           <h1 className='chat-heading'>Chats</h1>
           <FaEdit className='chat-add-icon' onClick={() => setAddContactDropdownVisibility(!AddContactDropdownVisibility)}/>

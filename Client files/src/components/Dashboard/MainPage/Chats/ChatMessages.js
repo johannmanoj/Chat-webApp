@@ -92,9 +92,9 @@ const ChatMessages = ({contact_details}) => {
                           {singleMessage.message}<br/>
                         </div>
                     </div><br/>
-                    {/* <div className='message-timestamp'>
+                    <div className='message-timestamp'>
                       {singleMessage.time_stamp}
-                    </div>   */}
+                    </div>  
                   </div>
               )
           })}

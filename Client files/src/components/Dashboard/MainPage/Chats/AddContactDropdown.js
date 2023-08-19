@@ -2,13 +2,16 @@ import "./AddContactDropdown.css";
 import { FaDoorOpen } from "react-icons/fa";
 import axios from "axios";
 import { useState } from "react";
-import { FaSearch, FaPlus} from "react-icons/fa";
+import { FaSearch, FaPlus, FaTimes} from "react-icons/fa";
+
+
 
 const AddContactDropdown = (props) => {
   const [contactSearch, setContactSearch] = useState([])
   const [searchName, setSearchName] = useState("")
 
   const [searchShow, setSearchShow] = useState(false)
+  
 
 
 
@@ -55,9 +58,14 @@ const AddContactDropdown = (props) => {
         <div className='chat-dropdown-backdrop' onClick= {() => props.setAddContactDropdownVisibility(false)}/>
 
         <div className='add-contact-modal'>
+          <div className="add-contact-title">New Chat</div>
           <div className="add-contact-header">
-              <input className='add-contact-search' onChange={nameChangeHandler}></input>
-              <FaSearch className="add-contact-search-icon" onClick={submitHandler}/>
+            <div className="add-contact-header-background">
+              <input className='add-contact-search' onChange={nameChangeHandler} placeholder="Search"></input>
+              {searchName.length > 0 && <FaTimes />}
+            </div>
+            <FaSearch className="add-contact-search-icon" onClick={submitHandler}/>
+            
           </div>
             
             
@@ -77,7 +85,7 @@ const AddContactDropdown = (props) => {
               }
 
               
-              {!searchShow && "Search"}
+              
           </div>
         </div>
     </div>
