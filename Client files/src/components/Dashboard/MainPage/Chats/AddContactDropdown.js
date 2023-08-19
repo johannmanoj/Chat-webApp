@@ -61,8 +61,8 @@ const AddContactDropdown = (props) => {
           <div className="add-contact-title">New Chat</div>
           <div className="add-contact-header">
             <div className="add-contact-header-background">
-              <input className='add-contact-search' onChange={nameChangeHandler} placeholder="Search"></input>
-              {searchName.length > 0 && <FaTimes />}
+              <input className='add-contact-search' onChange={nameChangeHandler} placeholder="Search" value={searchName}></input>
+              {searchName.length > 0 && <FaTimes onClick={() =>setSearchName("")}/>}
             </div>
             <FaSearch className="add-contact-search-icon" onClick={submitHandler}/>
             

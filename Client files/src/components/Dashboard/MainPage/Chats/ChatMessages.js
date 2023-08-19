@@ -87,14 +87,16 @@ const ChatMessages = ({contact_details}) => {
           {messages.map((singleMessage)=>{
               return(
                   <div className={singleMessage.type == "internal" ? 'chat-message-internal-align' : 'chat-message-external-align'}>
-                    <div  className={singleMessage.type == "internal" ? 'chat-message-internal' : 'chat-message-external'} > 
-                        <div className={'message-text'}>
-                          {singleMessage.message}<br/>
-                        </div>
-                    </div><br/>
-                    <div className='message-timestamp'>
-                      {singleMessage.time_stamp}
-                    </div>  
+                    <div className='chat-message-and-timestamp'>
+                      <div  className={singleMessage.type == "internal" ? 'chat-message-internal' : 'chat-message-external'} > 
+                          <div className={'message-text'}>
+                            {singleMessage.message}<br/>
+                          </div>
+                      </div>
+                      <div className='message-timestamp'>
+                        {singleMessage.time_stamp}
+                      </div> 
+                    </div> 
                   </div>
               )
           })}

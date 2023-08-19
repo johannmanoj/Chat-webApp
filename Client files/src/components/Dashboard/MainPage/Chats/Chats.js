@@ -67,8 +67,8 @@ const Chats = () => {
 
         <div className='chat-sidebar-search'>
           <div className='search-bar-background'>
-            <input className="chat-search-bar" placeholder='Search' onChange={nameChangeHandler} id="searchInput"></input>
-            {searchText.length > 0 ? <FaTimes className='chat-sidebar-search-icon' /> : <FaSearch className='chat-sidebar-search-icon'/>}
+            <input className="chat-search-bar" placeholder='Search' onChange={nameChangeHandler} value={searchText}></input>
+            {searchText.length > 0 ? <FaTimes className='chat-sidebar-search-icon'  onClick={() =>setSearchText("")}/> : <FaSearch className='chat-sidebar-search-icon'/>}
           </div>
         </div>
 

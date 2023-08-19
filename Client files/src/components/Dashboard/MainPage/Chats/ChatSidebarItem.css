@@ -17,6 +17,9 @@
 .chat-name{
     margin-top: 7px;
     color: white;
+    font-family: 'Open Sans';
+    font-weight: 500;
+    font-size: 14px;
     /* justify-content: center; */
 }
 
