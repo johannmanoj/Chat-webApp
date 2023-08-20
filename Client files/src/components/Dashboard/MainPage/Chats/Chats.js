@@ -71,12 +71,13 @@ const Chats = () => {
             {searchText.length > 0 ? <FaTimes className='chat-sidebar-search-icon'  onClick={() =>setSearchText("")}/> : <FaSearch className='chat-sidebar-search-icon'/>}
           </div>
         </div>
-
-        {searchContact.map((user) => (
-          <div key={Math.random(100000)} onClick={() =>  setSelectedContact({"email":user.contact_email, "name":user.firstName, "profilePic":user.profilePic})}>
-            <ChatSidebarItem user_name = {user.firstName} user_pic = {user.profilePic} user_email = {user.contact_email} />
-          </div>
-        ))}
+        <div className='chat-sidebar-contact-list'>
+          {searchContact.map((user) => (
+            <div key={Math.random(100000)} onClick={() =>  setSelectedContact({"email":user.contact_email, "name":user.firstName, "profilePic":user.profilePic})}>
+              <ChatSidebarItem user_name = {user.firstName} user_pic = {user.profilePic} user_email = {user.contact_email} />
+            </div>
+          ))}
+        </div>
         
       </div>
       

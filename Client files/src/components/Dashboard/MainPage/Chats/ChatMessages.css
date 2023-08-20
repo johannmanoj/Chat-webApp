@@ -33,6 +33,7 @@
     height: calc(100% - 120px);
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 
 .chat-message-and-timestamp{

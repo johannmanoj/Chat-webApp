@@ -9,6 +9,12 @@
   background-color: #2e333d;
 }
 
+.chat-sidebar-contact-list{
+  height: 83%;
+  /* background-color: #2048a7; */
+  overflow-y: auto;
+}
+
 .chat-sidebar-header{
   height: 50px;
   margin-top: 10px;
