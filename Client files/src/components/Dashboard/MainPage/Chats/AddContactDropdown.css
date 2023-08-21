@@ -35,6 +35,20 @@
 }
 
 .add-contact-search{
+    width: 225px;
+    height: 25px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #414755;
+    border-color: #414755;
+    color: white;
+}
+
+.add-contact-search:focus{
+    background-color: #414755;
+}
+
+.add-contact-search-with-x{
     width: 200px;
     height: 25px;
     border-radius: 5px;
@@ -42,6 +56,11 @@
     background-color: #414755;
     border-color: #414755;
     color: white;
+    /* margin-right: 10px; */
+}
+
+.add-contact-search-with-x:focus{
+    background-color: #414755;
 }
 
 .add-contact-search-icon{
@@ -56,6 +75,11 @@
     /* background-color: bisque; */
     width: 90%;
     height: 130px
+}
+
+.add-contact-x-icon{
+    color: rgb(182, 182, 182);
+    margin-right: 10px;
 }
 
 .add-contact-search-result-item{

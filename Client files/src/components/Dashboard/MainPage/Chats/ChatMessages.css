@@ -5,6 +5,14 @@
     padding: 0;
 }
 
+.messages-log-background{
+    height: calc(100% - 120px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    
+}
+
 .messages-log-background::-webkit-scrollbar {
     width: 10px;
 }
@@ -46,12 +54,7 @@
 }
 
 
-.messages-log-background{
-    height: calc(100% - 120px);
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
+
 
 .chat-message-and-timestamp{
     /* background-color: rgb(112, 103, 90); */
