@@ -33,15 +33,15 @@
 .chat-message-header{
     color: white;
     display: flex;
-    height: 60px;
+    height: 65px;
     width: 100%;
     background: #343a45;
     border-top-right-radius: 20px;
     /* margin-bottom: 20px; */
+    align-items: center;
 }
 
 .chat-message-profile-pic{
-    margin-top: 7px;
     margin-left: 20px;
     width: 45px;
     height: 45px;
@@ -49,8 +49,16 @@
 }
 
 .chat-message-profile-name{
-    margin-top: 7px;
     margin-left: 20px;
+    /* background-color: blue; */
+    width: 88%;
+}
+
+.chat-message-menu-icon{
+    color: #aebac1;
+    width: 20px;
+    height: 20px;
+ 
 }
 
 
