@@ -5,6 +5,23 @@
     padding: 0;
 }
 
+.messages-log-background::-webkit-scrollbar {
+    width: 10px;
+}
+
+.messages-log-background::-webkit-scrollbar-track {
+    background: #414755; 
+}
+
+.messages-log-background::-webkit-scrollbar-thumb {
+    background: #2e333d; 
+}
+
+.messages-log-background::-webkit-scrollbar-thumb:hover {
+    background: #292d36; 
+}
+
+
 .chat-message-header{
     color: white;
     display: flex;
