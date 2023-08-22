@@ -1,84 +1,60 @@
-.chat-dropdown-backdrop {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
-height: 100vh;
-z-index: 10;
-
+.ChatDropdown-menu{
+    position: relative;
+    left: 140px;
+    top: 65px;
+    background-color: #282c35;
+    border-radius:8px;
+    width: 160px;
+    color: #aebac1;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size:14px;
 }
 
-.chat-dropdown-modal {
-position: fixed;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-top: 10vh;
-left: -5.9vw;
-width: 150px;
-height: 100px;
-margin-left: 20%;
-margin-right: 15%;
-z-index: 100;
-overflow: hidden;
-background: #2a2f38;
-border-radius: 5px;
+.ChatDropdown-menu.active{
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: 300ms ease;
 }
 
-.add-contact-menu{  
-    color: white;
-    width: 90%;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    height: 30px;
+.ChatDropdown-menu.inactive{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 300ms ease;
+}
+
+.ChatDropdown-menu ul li{
+    padding: 10px  0;
+}
+
+.ChatDropdown-menu ul li:hover a{
+    color: rgb(212, 33, 9);
+    cursor: pointer;
+}
+
+.ChatDropdown_dropdownItem{
     display: flex;
-    align-items: center;
+    
 }
 
-.add-contact-menu:hover{
-    background-color: rgb(87, 52, 9);
+.ChatDropdown_dropdownItem a{
+    max-width: 120px;
+    transition: 300ms;
 }
-
-.add-contact-menu-item{
-    margin-left: 10px;
-}
-
-.settings-menu{
-    color: white;
-    width: 90%;
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-}
-
-.settings-menu:hover{
-    background-color: rgb(87, 52, 9);
-}
-
-.settings-menu-item{
-    margin-left: 10px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
-  
+.ChatDropdown_icon-1{
+    position: relative;
+    left: 10px;
+    top: 2px;
+    right: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    color: #aebac1;
+    width: 20px;
+    height: 20px;
+}

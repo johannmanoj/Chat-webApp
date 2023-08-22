@@ -34,7 +34,6 @@ const AddContactDropdown = (props) => {
         });
   }
 
-  // console.log("contactSearch------",contactSearch);
 
   const submitHandler = async (event) =>{
     event.preventDefault()

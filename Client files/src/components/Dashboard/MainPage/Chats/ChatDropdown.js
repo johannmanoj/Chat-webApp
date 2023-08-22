@@ -1,23 +1,49 @@
 import "./ChatDropdown.css";
-import { FaDoorOpen } from "react-icons/fa";
+import { FaEllipsisV } from "react-icons/fa";
 
-const ChatDropdown = (props) => {
-    
-    
-    return(
-        <div>
-            <div className='chat-dropdown-backdrop' onClick= {() => props.setDropdownVisibility(false)}/>
+import React, {useState, useEffect, useRef} from 'react';
 
-            <div className='chat-dropdown-modal'>
-                <div className="add-contact-menu">
-                   <div className="add-contact-menu-item">Add Contact</div> 
-                </div>
-                <div className="settings-menu">
-                    <div className="settings-menu-item">Settings</div>
-                </div>
+const ChatDropdown = () => {
+    const [open, setOpen] = useState(false);
+    let menuRef = useRef();
+    
+    useEffect(() => {
+      let handler = (e)=>{
+        if(!menuRef.current.contains(e.target)){
+          setOpen(false);
+          console.log(menuRef.current);
+        }      
+      };
+      document.addEventListener("mousedown", handler);
+      
+      return() =>{
+        document.removeEventListener("mousedown", handler);
+      }
+    });
+  
+    const DropdownItem =(props) =>{
+      return(
+        <li className = 'ChatDropdown_dropdownItem'>
+          <img src={props.img}></img>
+          <a> {props.text} </a>
+        </li>
+      );
+    }
+  
+    return (
+      <div>
+        <div className='ChatDropdown-container' ref={menuRef}>
+            <FaEllipsisV className='ChatDropdown_icon-1' onClick={()=>{setOpen(!open)}}/>
+            <div className={`ChatDropdown-menu ${open? 'active' : 'inactive'}`} >
+                <ul>
+                
+                <DropdownItem  text = {"Settings"}/>
+                
+                </ul>
             </div>
         </div>
-    )
+      </div>
+    );
 };
 
 

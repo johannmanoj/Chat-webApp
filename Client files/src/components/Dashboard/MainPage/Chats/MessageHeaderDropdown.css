@@ -2,25 +2,28 @@
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: #2a2f38;
+    background-color: #282c35;
     border-radius:8px;
     /* padding: 10px 20px; */
     width: 160px;
     color: #aebac1;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size:14px;
 }
 
 .MessageHeaderDropdown-menu.active{
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    transition: 500ms ease;
+    transition: 300ms ease;
 }
 
 .MessageHeaderDropdown-menu.inactive{
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
-    transition: 500ms ease;
+    transition: 300ms ease;
 }
 
 .MessageHeaderDropdown-menu ul li{
@@ -39,7 +42,7 @@
 
 .dropdownItem a{
     max-width: 120px;
-    transition: 500ms;
+    transition: 300ms;
 }
   
 .icon-1{

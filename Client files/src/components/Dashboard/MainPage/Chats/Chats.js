@@ -60,8 +60,13 @@ const Chats = () => {
         <div className='chat-sidebar-header'>
           <h1 className='chat-heading'>Chats</h1>
           <FaEdit className='chat-add-icon' onClick={() => setAddContactDropdownVisibility(!AddContactDropdownVisibility)}/>
-          <FaEllipsisV className = {dropdownVisibility ? 'chat-sidebar-icon2' : 'chat-sidebar-icon'} onClick={() => setDropdownVisibility(!dropdownVisibility)}/>
-          {dropdownVisibility && <ChatDropdown setDropdownVisibility = {setDropdownVisibility} />}
+
+          <ChatDropdown />
+
+          {/* <FaEllipsisV className = {dropdownVisibility ? 'chat-sidebar-icon2' : 'chat-sidebar-icon'} onClick={() => setDropdownVisibility(!dropdownVisibility)}/>
+          {dropdownVisibility && <ChatDropdown setDropdownVisibility = {setDropdownVisibility} />} */}
+
+
           {AddContactDropdownVisibility && <AddContactDropdown setAddContactDropdownVisibility = {setAddContactDropdownVisibility} />}
         </div>
 
