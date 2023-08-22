@@ -1,40 +1,53 @@
-import "./MessageHeaderDropdown.css";
-import { FaDoorOpen } from "react-icons/fa";
+import { FaEllipsisV} from "react-icons/fa";
+import './MessageHeaderDropdown.css'
 
-const MessageHeaderDropdown = (props) => {
-    
-    
-    return(
-        <div>
-            <div className='MessageHeaderDropdown-backdrop' onClick= {() => props.setDropdownVisibility(false)}/>
 
-            <div className='MessageHeaderDropdown-modal'>
-                <div className="add-contact-menu">
-                   <div className="MessageHeaderDropdown-text">Contact Info</div> 
-                </div>
-                <div className="settings-menu">
-                    <div className="MessageHeaderDropdown-text">Clear Messages</div>
-                </div>
-                <div className="settings-menu">
-                    <div className="MessageHeaderDropdown-text">Delete Chat</div>
-                </div>
+import React, {useState, useEffect, useRef} from 'react';
+
+const MessageHeaderDropdown = () => {
+    const [open, setOpen] = useState(false);
+    let menuRef = useRef();
+  
+    useEffect(() => {
+      let handler = (e)=>{
+        if(!menuRef.current.contains(e.target)){
+          setOpen(false);
+          console.log(menuRef.current);
+        }      
+      };
+      document.addEventListener("mousedown", handler);
+      
+      return() =>{
+        document.removeEventListener("mousedown", handler);
+      }
+    });
+  
+    const DropdownItem =(props) =>{
+      return(
+        <li className = 'dropdownItem'>
+          <img src={props.img}></img>
+          <a> {props.text} </a>
+        </li>
+      );
+    }
+  
+    return (
+      <div>
+        <div className='MessageHeaderDropdown-container' ref={menuRef}>
+            <FaEllipsisV className='icon-1' onClick={()=>{setOpen(!open)}}/>
+            <div className={`MessageHeaderDropdown-menu ${open? 'active' : 'inactive'}`} >
+                <ul>
+                
+                <DropdownItem  text = {"Contact Info"}/>
+                <DropdownItem  text = {"Clear Message"}/>
+                <DropdownItem  text = {"Delete Chat"}/>
+                </ul>
             </div>
-            
-            {/* <div class="menu">
-                <li>
-                    <a >Parent Link</a>
-                    
-                    <ul>
-                    <a >Contact Info</a>
-                    <a >Delete Messages</a>
-                    <a >Delete chat</a>
-                    
-                    </ul>
-                </li>
-            </div> */}
         </div>
-    )
-};
+      </div>
+    );
+}
+
 
 
 export default MessageHeaderDropdown;

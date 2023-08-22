@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './ChatMessages.css'
 import axios from 'axios'
-import { FaPaperPlane, FaSmileBeam, FaYinYang,FaEllipsisV} from "react-icons/fa";
+import { FaPaperPlane, FaYinYang} from "react-icons/fa";
 
 import MessageHeaderDropdown from './MessageHeaderDropdown';
+
 
 const ChatMessages = ({contact_details}) => {
   const [enteredValue, setEnteredValue] = useState('');
@@ -83,12 +84,9 @@ const ChatMessages = ({contact_details}) => {
 
         <div className='chat-message-header'>
           <img className='chat-message-profile-pic' src={contact_details.profilePic} />
-          {/* <div className='chat-message-profile-pic'></div> */}
           <div className='chat-message-profile-name'>{contact_details.name}</div>
-          <FaEllipsisV className='chat-message-menu-icon' onClick={() => setDropdownVisibility(!dropdownVisibility)}/>
+          <MessageHeaderDropdown/>
         </div>
-
-        {dropdownVisibility && <MessageHeaderDropdown  setDropdownVisibility = {setDropdownVisibility}/>}
         
         <div className='messages-log-background'>
           {messages.map((singleMessage)=>{
