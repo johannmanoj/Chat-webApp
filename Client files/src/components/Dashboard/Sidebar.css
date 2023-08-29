@@ -10,9 +10,13 @@
 .sidebar-icons {
     margin-top: 15px;
     margin-left: 20px;
-    color: white;
+    color: #aebac1;
     height: 25px;
     width: 25px;
+}
+
+.sidebar-icons:hover{
+    color: white;
 }
 
 .profile-image{

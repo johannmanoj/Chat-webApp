@@ -6,7 +6,7 @@
 }
 
 .messages-log-background{
-    height: calc(100% - 120px);
+    height: calc(100% - 125px);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -52,6 +52,9 @@
     margin-left: 20px;
     /* background-color: blue; */
     width: 88%;
+    font-family: 'Open Sans';
+    font-weight: 500;
+    font-size:16px;
 }
 
 .chat-message-menu-icon{
@@ -106,6 +109,9 @@
 }
 
 .message-text{
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size:13px;
     margin-left: 20px;
     margin-top: 5px;
 }

@@ -36,9 +36,7 @@ const ChatDropdown = () => {
             <FaEllipsisV className='ChatDropdown_icon-1' onClick={()=>{setOpen(!open)}}/>
             <div className={`ChatDropdown-menu ${open? 'active' : 'inactive'}`} >
                 <ul>
-                
-                <DropdownItem  text = {"Settings"}/>
-                
+                  <DropdownItem  text = {"Settings"}/>
                 </ul>
             </div>
         </div>
