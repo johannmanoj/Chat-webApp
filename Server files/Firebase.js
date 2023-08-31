@@ -127,7 +127,7 @@ const get_data = async () =>{
 const get_user_messages = async (email) =>{
   const messages = []
   const tableRef = db.collection('messages');
-  const snapshot = await tableRef.where('contact_email', '==', email).orderBy('created','asc').get();
+  const snapshot = await tableRef.where('contact_email', '==', email).orderBy('created','desc').get();
   snapshot.forEach(doc => {
     messages.push(doc.data())
   });

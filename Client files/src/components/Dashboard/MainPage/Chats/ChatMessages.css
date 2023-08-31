@@ -8,7 +8,7 @@
 .messages-log-background{
     height: calc(100% - 125px);
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     overflow-y: auto;
     
 }
@@ -93,27 +93,31 @@
 }
 
 .chat-message-internal{
-    width:200px;
-    height: 40px;
+    display: inline-block;
     background-color: grey;
-    color: white;
+    padding:10px;
     border-radius: 10px;
+    max-width:550px;
+    color: white;
+    word-wrap: break-word;
 }
 
 .chat-message-external{
-    width:200px;
-    height: 40px;
+    display: inline-block;
+    padding:10px;
+    max-width:550px;
     background-color: rgb(100, 99, 99);
     color: white;
     border-radius: 10px;
+    word-wrap: break-word;
 }
 
 .message-text{
     font-family: 'Open Sans';
     font-weight: 400;
     font-size:13px;
-    margin-left: 20px;
-    margin-top: 5px;
+    /* margin-left: 20px; */
+    /* margin-top: 5px; */
 }
 
 

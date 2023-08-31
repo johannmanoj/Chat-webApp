@@ -114,8 +114,11 @@ const ChatMessages = ({contact_details}) => {
           }
         </div>
         <div className='message-footer'>
-          <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler} placeholder='Type a message' ></input>
-          <FaPaperPlane className='message-icon' onClick={formSubmitHandler} />
+          <form onSubmit={formSubmitHandler} className='message-footer'>
+            <input className='message-input' type="text" value={enteredValue} onChange={goalInputChangeHandler} placeholder='Type a message' ></input>
+            <FaPaperPlane className='message-icon' onClick={formSubmitHandler} />
+          </form>
+          
         </div>
   
       </div>
