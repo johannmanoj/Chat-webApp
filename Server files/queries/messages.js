@@ -70,8 +70,10 @@ const delete_contact_messages = async (user_email, contact_email) =>{
     }
 }
 
-const log_message = async (query_data) => {
+const log_message = async (user_email, contact_email, message) => {
     try {
+        var query_data = "('" + user_email + "','" + contact_email + "','" + message + "','" + "internal" + "'),('" + contact_email + "','" + user_email + "','" + message + "','" + "external" + "')"
+
         const result = await db.sequelize.query(
             `INSERT INTO chatapp.messages (user_email, contact_email, message, type) VALUES ${query_data}`,
             {
@@ -101,9 +103,7 @@ const log_message = async (query_data) => {
 }
 
 
-
-
-
+// log_message("johann.perfit@gmail.com","carol@gmail.com","testttttttt")
 // get_user_contact_messages("johann.perfit@gmail.com","carol@gmail.com")
 // delete_particular_message("10")
 // delete_contact_messages("carol@gmail.com","johann.perfit@gmail.com")
