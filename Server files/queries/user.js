@@ -10,7 +10,7 @@ const get_user_info = async (email) => {
                 type: QueryTypes.SELECT
             }
         );
-        console.log(result)
+        // console.log(result)
         return {
             statusCode: 200,
             data: result               

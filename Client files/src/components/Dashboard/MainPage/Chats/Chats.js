@@ -28,7 +28,8 @@ const Chats = () => {
       }
       await axios(config)
         .then((response) => {
-          setContactList(response.data)
+          // console.log(`get_contacts_list`,response.data.data);
+          setContactList(response.data.data)
         })
         .catch((error) => {
           console.log(error.response);
@@ -37,7 +38,7 @@ const Chats = () => {
 
     get_contacts_list()
   },[])
-
+  
   useEffect(() =>{
     const get_search_contacts_list = async () =>{
       var data_list = []

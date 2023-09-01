@@ -35,11 +35,12 @@ const ChatMessages = ({contact_details}) => {
       const config = {
         method: 'post',
         url: `http://localhost:8080/get-user-messages`,
-        data : {"email" :contact_details.email}
+        data : {"user_email" :localStorage.getItem('userEmail'), "contact_email":contact_details.email}
       }
       await axios(config)
         .then((response) => {
-          setMessages(response.data)
+          // console.log("messages----",response.data.data);
+          setMessages(response.data.data)
         })
         .catch((error) => {
           console.log(error.response);
@@ -78,6 +79,25 @@ const ChatMessages = ({contact_details}) => {
     setEnteredValue("")
   };
 
+
+  const date_converter = (input_date) =>{
+    var currentTime = new Date(input_date);
+    var currentOffset = currentTime.getTimezoneOffset();
+    var ISTOffset = 330;   // IST offset UTC +5:30 
+
+    var ISTTime = new Date(currentTime.getTime() + (ISTOffset + currentOffset)*60000);
+
+    var formated_time = new Intl.DateTimeFormat('default',
+        {
+            hour12: true,
+            hour: 'numeric',
+            minute: 'numeric'
+        }).format(ISTTime);
+
+        console.log("formated_time",formated_time);
+    return formated_time
+  }
+
   if(contact_details.email != ""){
     return (
       <div className='chatMessages-background'>
@@ -99,7 +119,7 @@ const ChatMessages = ({contact_details}) => {
                           </div>
                       </div>
                       <div className='message-timestamp'>
-                        {singleMessage.time_stamp}
+                        {date_converter(singleMessage.created)}
                       </div> 
                     </div> 
                   </div>

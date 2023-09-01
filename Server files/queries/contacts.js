@@ -42,7 +42,7 @@ const get_user_contacts = async (user_email) => {
                 type: QueryTypes.SELECT
             }
         );
-        console.log(result)
+        // console.log(result)
         return {
             statusCode: 200,
             data: result               

@@ -4,13 +4,13 @@ const db = require('./index');
 const get_user_contact_messages = async (user_email, contact_email) => {
     try {
         const result = await db.sequelize.query(
-            'SELECT * FROM chatapp.messages WHERE user_email = ? AND contact_email = ?',
+            'SELECT * FROM chatapp.messages WHERE user_email = ? AND contact_email = ? order by id desc',
             {
                 replacements: [user_email, contact_email],
                 type: QueryTypes.SELECT
             }
         );
-        console.log(result)
+        // console.log(result)
         return {
             statusCode: 200,
             data: result               
@@ -33,7 +33,7 @@ const delete_particular_message = async (message_id) =>{
                 type: QueryTypes.SELECT
             }
         );
-        console.log(result)
+        // console.log(result)
         return {
             statusCode: 200,
             data: result               
@@ -56,7 +56,7 @@ const delete_contact_messages = async (user_email, contact_email) =>{
                 type: QueryTypes.SELECT
             }
         );
-        console.log(result)
+        // console.log(result)
         return {
             statusCode: 200,
             data: result               
