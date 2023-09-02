@@ -26,24 +26,19 @@
     transition: 300ms ease;
 }
 
-.MessageHeaderDropdown-menu ul li{
-    padding: 10px  0;
+.dropdownItem{
+    display: flex;
+    max-width: 120px;
+    transition: 300ms;
+    margin-top: 10px;
 }
 
-.MessageHeaderDropdown-menu ul li:hover a{
+.dropdownItem:hover{
     color: rgb(212, 33, 9);
     cursor: pointer;
 }
 
-.dropdownItem{
-    display: flex;
-    
-}
 
-.dropdownItem a{
-    max-width: 120px;
-    transition: 300ms;
-}
   
 .icon-1{
     position: absolute;

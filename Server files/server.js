@@ -99,6 +99,31 @@ app.post('/log-user', async (req,res) =>{
     }
 })
 
+app.post('/clear-contact-messages', async (req,res) =>{
+    try {
+        console.log("clear message api called");
+        const {user_email, contact_email} = req.body
+        var response = await message_db.delete_contact_messages(user_email, contact_email)
+        
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
+app.post('/delete-contact', async (req,res) =>{
+    try {
+        console.log("clear message api called");
+        const {user_email, contact_email} = req.body
+        var response = await contact_db.delete_contact(user_email, contact_email)
+        await message_db.delete_contact_messages(user_email, contact_email)
+        
+        res.status(200).send(response)
+    } catch (error) {
+        res.status(500).send(error)
+    }
+})
+
 
 
 

@@ -56,6 +56,28 @@ const get_user_contacts = async (user_email) => {
     }
 }
 
+const delete_contact = async (user_email, contact_email) =>{
+    try {
+        const result = await db.sequelize.query(
+            'DELETE FROM chatapp.user_contacts WHERE user = ? AND contact_email = ?',
+            {
+                replacements: [user_email, contact_email],
+                type: QueryTypes.SELECT
+            }
+        );
+        // console.log(result)
+        return {
+            statusCode: 200,
+            data: result               
+        }
+    } catch(err) {
+        return {
+            statusCode: 500,
+            errorName: err.name,
+            errorMsg: err.message
+        }
+    }
+}
 
 
 
@@ -63,4 +85,5 @@ const get_user_contacts = async (user_email) => {
 
 
 
-module.exports = {log_new_contact, get_user_contacts}
+
+module.exports = {log_new_contact, get_user_contacts, delete_contact}

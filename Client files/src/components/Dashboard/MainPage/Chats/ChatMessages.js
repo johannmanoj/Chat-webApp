@@ -105,7 +105,7 @@ const ChatMessages = ({contact_details}) => {
         <div className='chat-message-header'>
           <img className='chat-message-profile-pic' src={contact_details.profilePic} />
           <div className='chat-message-profile-name'>{contact_details.name}</div>
-          <MessageHeaderDropdown/>
+          <MessageHeaderDropdown contact_email ={contact_details.email} setSubmitstate = {setSubmitstate} submitstate = {submitstate} />
         </div>
         
         <div className='messages-log-background'>

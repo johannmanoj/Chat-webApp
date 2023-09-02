@@ -1,51 +1,78 @@
 import { FaEllipsisV} from "react-icons/fa";
 import './MessageHeaderDropdown.css'
+import axios from 'axios'
 
 
 import React, {useState, useEffect, useRef} from 'react';
 
-const MessageHeaderDropdown = () => {
-    const [open, setOpen] = useState(false);
-    let menuRef = useRef();
-  
-    useEffect(() => {
-      let handler = (e)=>{
-        if(!menuRef.current.contains(e.target)){
-          setOpen(false);
-          console.log(menuRef.current);
-        }      
-      };
-      document.addEventListener("mousedown", handler);
-      
-      return() =>{
-        document.removeEventListener("mousedown", handler);
-      }
-    });
-  
-    const DropdownItem =(props) =>{
-      return(
-        <li className = 'dropdownItem'>
-          <img src={props.img}></img>
-          <a> {props.text} </a>
-        </li>
-      );
+const MessageHeaderDropdown = ({contact_email, submitstate, setSubmitstate}) => {
+  const [open, setOpen] = useState(false);
+  let menuRef = useRef();
+  const refresh = () => window.location.reload(true)
+
+  useEffect(() => {
+    let handler = (e)=>{
+      if(!menuRef.current.contains(e.target)){
+        setOpen(false);
+        console.log(menuRef.current);
+      }      
+    };
+    document.addEventListener("mousedown", handler);
+    
+    return() =>{
+      document.removeEventListener("mousedown", handler);
     }
+  });
+
+  const clear_messages = async () =>{
+    const config = {
+      method: 'post',
+      url: `http://localhost:8080/clear-contact-messages`,
+      data : {"user_email" :localStorage.getItem("userEmail"), "contact_email":contact_email}
+    }
+    await axios(config)
+      .then((response) => {
+        setSubmitstate(!submitstate)
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  }
+
+  const delete_contact = async () =>{
+    const config = {
+      method: 'post',
+      url: `http://localhost:8080/delete-contact`,
+      data : {"user_email" :localStorage.getItem("userEmail"), "contact_email":contact_email}
+    }
+    await axios(config)
+      .then((response) => {
+        setSubmitstate(!submitstate)
+        console.log(response.data);
+        refresh()
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  }
   
-    return (
-      <div>
-        <div className='MessageHeaderDropdown-container' ref={menuRef}>
-            <FaEllipsisV className='icon-1' onClick={()=>{setOpen(!open)}}/>
-            <div className={`MessageHeaderDropdown-menu ${open? 'active' : 'inactive'}`} >
-                <ul>
-                
-                <DropdownItem  text = {"Contact Info"}/>
-                <DropdownItem  text = {"Clear Message"}/>
-                <DropdownItem  text = {"Delete Chat"}/>
-                </ul>
-            </div>
-        </div>
+
+
+  return (
+    <div>
+      <div className='MessageHeaderDropdown-container' ref={menuRef}>
+          <FaEllipsisV className='icon-1' onClick={()=>{setOpen(!open)}}/>
+          <div className={`MessageHeaderDropdown-menu ${open? 'active' : 'inactive'}`} >
+              <ul>
+              <div className = 'dropdownItem' >Contact Info</div>
+              <div className = 'dropdownItem' onClick={() =>clear_messages()}>Clear Message</div>
+              <div className = 'dropdownItem' onClick={() => delete_contact()}>Delete Chat</div>
+              </ul>
+          </div>
       </div>
-    );
+    </div>
+  );
 }
 
 
