@@ -12,7 +12,7 @@ const Chats = () => {
   const [selectedContact, setSelectedContact] = useState({"email":"", "name":"", "profilePic":""})
   // const [selectedContactDetails, setSelectedContactDetails] = useState()
 
-  const [dropdownVisibility, setDropdownVisibility] = useState(false)
+  // const [dropdownVisibility, setDropdownVisibility] = useState(false)
   const [AddContactDropdownVisibility, setAddContactDropdownVisibility] = useState(false)
 
   const [searchContact, setSearchContact] = useState([])
@@ -52,7 +52,14 @@ const Chats = () => {
   
   const nameChangeHandler = (event) =>{ setSearchText(event.target.value) }
 
-  
+  const contact_visibility_check = (email) =>{
+    console.log("++++++++",email, setSelectedContact.email);
+    if(email == selectedContact.email){
+      return true
+    }else{
+      return false
+    }
+  }
 
   return (
     <div className='Chats' >
@@ -80,7 +87,7 @@ const Chats = () => {
         <div className='chat-sidebar-contact-list'>
           {searchContact.map((user) => (
             <div key={Math.random(100000)} onClick={() =>  setSelectedContact({"email":user.contact_email, "name":user.firstName, "profilePic":user.profilePic})}>
-              <ChatSidebarItem user_name = {user.firstName} user_pic = {user.profilePic} user_email = {user.contact_email} />
+              <ChatSidebarItem user_name = {user.firstName} user_pic = {user.profilePic} user_email = {user.contact_email}   selection_status={contact_visibility_check(user.contact_email)}/>
             </div>
           ))}
         </div>
