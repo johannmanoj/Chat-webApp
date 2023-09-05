@@ -133,3 +133,21 @@ span a:after{
 span a:hover{
   transform: translateZ(-25px) rotateX(-90deg);
 }
+
+.login-google-icon{
+  width:120px;
+  height: 120px;
+  border-radius: 5px;
+}
+
+.login-group{
+  background-color: #414755;
+  border-radius: 10px;
+  width: 400px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 2px 6px 0px;
+}

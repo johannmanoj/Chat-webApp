@@ -4,6 +4,8 @@ import {FaRegComments} from "react-icons/fa";
 import './Login.css'
 import axios from 'axios'
 
+import image from './images/chat-icon-grey.png'
+
 
 import GoogleButton from "react-google-button";
 import { useUserAuth } from "./UserAuthContext";
@@ -73,7 +75,11 @@ const Login = () => {
     //   </div>
     // </div>
     <div className="login-background2">
-      <span><a href="#" onClick={handleGoogleSignIn}></a></span>
+      <div className="login-group">
+        <img src={image} className="login-google-icon"></img>
+        <span><a href="#" onClick={handleGoogleSignIn}></a></span>
+      </div>
+      
     </div>
     
   );
