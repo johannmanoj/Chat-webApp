@@ -4,6 +4,7 @@ import axios from 'axios'
 import { FaPaperPlane, FaYinYang} from "react-icons/fa";
 
 import MessageHeaderDropdown from './MessageHeaderDropdown';
+import ContactInfoSlider from './ContactInfoSlider';
 
 
 const ChatMessages = ({contact_details}) => {
@@ -105,7 +106,8 @@ const ChatMessages = ({contact_details}) => {
         <div className='chat-message-header'>
           <img className='chat-message-profile-pic' src={contact_details.profilePic} />
           <div className='chat-message-profile-name'>{contact_details.name}</div>
-          <MessageHeaderDropdown contact_email ={contact_details.email} setSubmitstate = {setSubmitstate} submitstate = {submitstate} />
+          {/* <MessageHeaderDropdown contact_email ={contact_details.email} setSubmitstate = {setSubmitstate} submitstate = {submitstate} /> */}
+          <ContactInfoSlider contact_email ={contact_details.email} setSubmitstate = {setSubmitstate} submitstate = {submitstate} profilePic ={contact_details.profilePic}/>
         </div>
         
         <div className='messages-log-background'>

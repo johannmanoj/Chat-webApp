@@ -1,0 +1,66 @@
+.ContactInfoSlider-menu{
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #282c35;
+    border-radius:8px;
+    width: 300px;
+    color: #aebac1;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size:14px;
+}
+
+.ContactInfoSlider-menu.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: 300ms ease;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+}
+
+.ContactInfoSlider-menu.inactive{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px);
+    transition: 300ms ease;
+}
+
+.dropdownItem{
+    display: flex;
+    max-width: 120px;
+    transition: 300ms;
+    margin-top: 10px;
+}
+
+.dropdownItem:hover{
+    color: rgb(212, 33, 9);
+    cursor: pointer;
+}
+
+
+  
+.icon-1{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    color: #aebac1;
+    width: 20px;
+    height: 20px;
+}
+
+.ContactInfoSlider-pic{
+    /* display: flex; */
+    transition: 300ms;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin-top: 20px;
+    margin-left: 17%;
+}
