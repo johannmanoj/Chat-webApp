@@ -6,6 +6,7 @@ import { FaSearch, FaEllipsisV, FaEdit, FaTimes} from "react-icons/fa";
 import axios from 'axios';
 import ChatDropdown from './ChatDropdown';
 import AddContactDropdown from './AddContactDropdown';
+import NewChatDropdown from './NewChatDropdown';
 
 const Chats = () => {
   const [contactList, setContactList] = useState([])
@@ -67,9 +68,12 @@ const Chats = () => {
         
         <div className='chat-sidebar-header'>
           <h1 className='chat-heading'>Chats</h1>
-          <FaEdit className='chat-add-icon' onClick={() => setAddContactDropdownVisibility(!AddContactDropdownVisibility)}/>
+          {/* <FaEdit className='chat-add-icon' onClick={() => setAddContactDropdownVisibility(!AddContactDropdownVisibility)}/> */}
+
+          <NewChatDropdown className='chat-add-icon'/>
 
           <ChatDropdown />
+
 
           {/* <FaEllipsisV className = {dropdownVisibility ? 'chat-sidebar-icon2' : 'chat-sidebar-icon'} onClick={() => setDropdownVisibility(!dropdownVisibility)}/>
           {dropdownVisibility && <ChatDropdown setDropdownVisibility = {setDropdownVisibility} />} */}

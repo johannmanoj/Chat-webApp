@@ -70,21 +70,18 @@ const AddContactDropdown = (props) => {
             
       
           <div className="add-contact-search-result">
-              {searchShow && 
-                (contactSearch.length > 0 ? 
-                  <div className="add-contact-search-result-item">
-                    <div className= "add-contact-search-result-item-name">{contactSearch[0]["email"]}</div>
-                    { contactSearch.length > 0 && <FaPlus className="add-contact-plus-icon" onClick={() => add_contact()} />}
-                  </div> 
-                  : 
-                  <div className="add-contact-search-result-empty">
-                    <div> No matching contact found </div>
-                  </div>
-                )
-              }
-
-              
-              
+            {searchShow && 
+              (contactSearch.length > 0 ? 
+                <div className="add-contact-search-result-item">
+                  <div className= "add-contact-search-result-item-name">{contactSearch[0]["email"]}</div>
+                  { contactSearch.length > 0 && <FaPlus className="add-contact-plus-icon" onClick={() => add_contact()} />}
+                </div> 
+                : 
+                <div className="add-contact-search-result-empty">
+                  <div> No matching contact found </div>
+                </div>
+              )
+            }  
           </div>
         </div>
     </div>

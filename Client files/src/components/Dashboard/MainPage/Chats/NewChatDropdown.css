@@ -1,0 +1,204 @@
+.NewChatDropdown-menu{
+    position: relative;
+    left: 140px;
+    top: 65px;
+    background-color: #282c35;
+    border-radius:8px;
+    width: 300px;
+    height: 250px;
+    color: #aebac1;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size:14px;
+}
+
+.NewChatDropdown-menu.active{
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: 300ms ease;
+}
+
+.NewChatDropdown-menu.inactive{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: 300ms ease;
+}
+
+.NewChatDropdown-menu ul li{
+    padding: 10px  0;
+}
+
+.NewChatDropdown-menu ul li:hover a{
+    color: rgb(212, 33, 9);
+    cursor: pointer;
+}
+
+.NewChatDropdown_dropdownItem{
+    display: flex;
+    
+}
+
+.NewChatDropdown_dropdownItem a{
+    max-width: 120px;
+    transition: 300ms;
+}
+  
+.NewChatDropdown_icon-1{
+    position: relative;
+    left: 5px;
+    top: 2px;
+    right: 300px;
+    margin-right: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    color: #aebac1;
+    width: 20px;
+    height: 20px;
+}
+
+.NewChatDropdown_icon-1:hover{
+    color: white;
+}
+
+
+
+
+.chat-dropdown-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    
+}
+
+.NewChatDropdown-title{
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size:25px;
+    margin-bottom: 15px;
+    /* margin-right: 152px; */
+    margin-left: 16px;
+    margin-top: 10px;
+}
+
+.NewChatDropdown-search{
+    width: 225px;
+    height: 25px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #414755;
+    border-color: #414755;
+    color: white;
+}
+
+.NewChatDropdown-search:focus{
+    background-color: #414755;
+}
+
+.NewChatDropdown-search-with-x{
+    width: 200px;
+    height: 25px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #414755;
+    border-color: #414755;
+    color: white;
+    /* margin-right: 10px; */
+}
+
+.NewChatDropdown-search-with-x:focus{
+    background-color: #414755;
+}
+
+.NewChatDropdown-search-icon{
+   margin-left: 10px;
+    color: #aebac1;
+    height: 20px;
+    width: 20px;
+}
+
+.NewChatDropdown-search-result{
+    margin-top: 10px;
+    /* background-color: bisque; */
+    width: 90%;
+    height: 130px
+}
+
+.NewChatDropdown-x-icon{
+    color: rgb(182, 182, 182);
+    margin-right: 10px;
+}
+
+.NewChatDropdown-search-result-item{
+    background-color: rgb(105, 105, 105);
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 270px;
+    border-radius: 10px;
+    margin-left: 15px;
+    color:white
+}
+
+.NewChatDropdown-search-result-item-name{
+    margin-left: 10px;
+    width: 220px;
+    /* background-color: blue; */
+}
+
+.NewChatDropdown-search-result-empty{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.NewChatDropdown-header{
+    width: 100%;
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+}
+
+.NewChatDropdown-header-background{
+    background-color: #414755;
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.NewChatDropdown-plus-icon{
+    width: 23px;
+    height: 23px;
+}
+
+.NewChatDropdown-plus-icon:hover{
+    color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    

@@ -23,7 +23,7 @@ const ContactInfoSlider = ({contact_email, submitstate, setSubmitstate, profileP
       document.removeEventListener("mousedown", handler);
     }
   });
-
+  
   const clear_messages = async () =>{
     const config = {
       method: 'post',
