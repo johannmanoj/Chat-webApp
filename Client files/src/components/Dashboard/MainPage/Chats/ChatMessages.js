@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './ChatMessages.css'
 import axios from 'axios'
 import { FaPaperPlane, FaYinYang} from "react-icons/fa";
+import { IoCheckmarkDoneSharp} from "react-icons/io5";
 
 import MessageHeaderDropdown from './MessageHeaderDropdown';
 import ContactInfoSlider from './ContactInfoSlider';
@@ -114,7 +115,7 @@ const ChatMessages = ({contact_details}) => {
           {messages.map((singleMessage)=>{
               return(
                   <div className={singleMessage.type == "internal" ? 'chat-message-internal-align' : 'chat-message-external-align'}>
-                    <div className='chat-message-and-timestamp'>
+                    <div className={singleMessage.type == "internal" ? 'chat-message-and-timestamp-internal' : 'chat-message-and-timestamp-external'}>
                       <div  className={singleMessage.type == "internal" ? 'chat-message-internal' : 'chat-message-external'} > 
                           <div className={'message-text'}>
                             {singleMessage.message}<br/>
@@ -122,6 +123,7 @@ const ChatMessages = ({contact_details}) => {
                       </div>
                       <div className='message-timestamp'>
                         {date_converter(singleMessage.created)}
+                        <IoCheckmarkDoneSharp className='chat-tick-icon-read'/>
                       </div> 
                     </div> 
                   </div>

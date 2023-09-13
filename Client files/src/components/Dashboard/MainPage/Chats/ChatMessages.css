@@ -67,8 +67,18 @@
 
 
 
-.chat-message-and-timestamp{
-    /* background-color: rgb(112, 103, 90); */
+.chat-message-and-timestamp-internal{
+    background-color: grey;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content:right;
+}
+
+.chat-message-and-timestamp-external{
+    background-color: rgb(100, 99, 99);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
 
@@ -199,11 +209,24 @@ button:focus {
     margin-top: 2px;
     margin-left: 10px;
     width: 105px;
-    color: rgb(202, 201, 201);
+    color: rgb(226, 226, 226);
     font-family: 'Open Sans';
     font-weight: 200;
     font-size:11px;
     /* background-color: aqua; */
+}
+
+.chat-tick-icon-unread{
+    margin-left: 5px;
+    height: 15px;
+    width: 15px;
+    color:white;
+}
+.chat-tick-icon-read{
+    margin-left: 5px;
+    height: 15px;
+    width: 15px;
+    color: skyblue;
 }
 
 
